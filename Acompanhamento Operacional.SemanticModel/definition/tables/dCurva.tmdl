@@ -1,0 +1,93 @@
+table dCurva
+	lineageTag: 48489670-9d39-4308-95a2-c768afb918d0
+
+	column 'CLIENTE ABREV'
+		dataType: string
+		lineageTag: bd474cb2-a6b1-40eb-bfb9-60b81ea50a71
+		summarizeBy: none
+		sourceColumn: CLIENTE ABREV
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CLIENTE PRINCIPAL'
+		dataType: string
+		lineageTag: ae906b3d-cce7-494e-bb11-fdd5bb7b6082
+		summarizeBy: none
+		sourceColumn: CLIENTE PRINCIPAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column CURVA
+		dataType: string
+		lineageTag: a1835c87-b7e9-4f87-ba59-5ee87ee5d89a
+		summarizeBy: none
+		sourceColumn: CURVA
+
+		annotation SummarizationSetBy = Automatic
+
+	column Analista
+		dataType: string
+		lineageTag: e863e2b4-86eb-48d0-9843-9db269b04045
+		summarizeBy: none
+		sourceColumn: Analista
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column5
+		dataType: string
+		lineageTag: 8798c68b-96d3-4a2f-ad8e-42bb3dc6e1d7
+		summarizeBy: none
+		sourceColumn: Column5
+
+		annotation SummarizationSetBy = Automatic
+
+	column A
+		dataType: string
+		lineageTag: ee36594d-9c66-4909-af50-b5fba7ec320a
+		summarizeBy: none
+		sourceColumn: A
+
+		annotation SummarizationSetBy = Automatic
+
+	column Felipe
+		dataType: string
+		lineageTag: 236083f9-5a84-4563-822a-ae8e3128f0e0
+		summarizeBy: none
+		sourceColumn: Felipe
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column8
+		dataType: string
+		lineageTag: 107caba4-9ac7-427f-9a86-6663c1c2055d
+		summarizeBy: none
+		sourceColumn: Column8
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Na coluna A colocamos o nome que queremos que aparece no BI PODE DUPLICAR. Na coluna B é o nome do cliente que esta na 583 sem os ..'
+		dataType: string
+		lineageTag: 3248a7a8-5cac-4b63-a6a8-40b7e7108b7e
+		summarizeBy: none
+		sourceColumn: Na coluna A colocamos o nome que queremos que aparece no BI PODE DUPLICAR. Na coluna B é o nome do cliente que esta na 583 sem os ..
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dCurva = m
+		mode: import
+		queryGroup: 'TABELAS PADRÃO'
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\flavi\OneDrive\001\Bases BI\Curva.xlsx"), null, true),
+				    Planilha2_Sheet = Fonte{[Item="Planilha2",Kind="Sheet"]}[Data],
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Planilha2_Sheet,{{"Column1", type text}, {"Column2", type text}, {"Column3", type text}}),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Tipo Alterado", [PromoteAllScalars=true]),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"CLIENTE ABREV", type text}, {"CLIENTE PRINCIPAL", type text}, {"CURVA", type text}}),
+				    #"Valor Substituído" = Table.ReplaceValue(#"Tipo Alterado1","ETIC DISTRIBUIDORA","ETIC",Replacer.ReplaceText,{"CLIENTE ABREV"})
+				in
+				    #"Valor Substituído"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegação
+

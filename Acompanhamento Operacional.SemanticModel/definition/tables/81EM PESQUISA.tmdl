@@ -1,0 +1,116 @@
+table '81EM PESQUISA'
+	lineageTag: 0e71bc6d-f860-4fdf-86c1-d84cf5318656
+
+	column NUMERO_COLETA
+		dataType: int64
+		formatString: 0
+		lineageTag: 0cfbab7f-0cc2-4771-b5dd-d432e4711956
+		summarizeBy: none
+		sourceColumn: NUMERO_COLETA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column COTACAO
+		dataType: int64
+		formatString: 0
+		lineageTag: 37f399ca-6e57-4add-9f36-c149238b6691
+		summarizeBy: none
+		sourceColumn: COTACAO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATA_ULTIMA_OCORRENCIA
+		dataType: dateTime
+		formatString: dd/mm/yy
+		lineageTag: 1708e612-f3be-4bef-86f0-ada98a5a054d
+		summarizeBy: none
+		sourceColumn: DATA_ULTIMA_OCORRENCIA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column HORA_ULTIMA_OCORRENCIA
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: 126288ff-5b3c-498a-8343-726419f619df
+		summarizeBy: none
+		sourceColumn: HORA_ULTIMA_OCORRENCIA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column USUARIO_ULTIMA_OCORRENCIA
+		dataType: string
+		lineageTag: 1c013788-8d12-4f2d-86f0-976167e11f68
+		summarizeBy: none
+		sourceColumn: USUARIO_ULTIMA_OCORRENCIA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ULTIMA_OCORRENCIA
+		dataType: string
+		lineageTag: 04d143d4-18ca-4af2-a11a-98d29ddb1650
+		summarizeBy: none
+		sourceColumn: ULTIMA_OCORRENCIA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CHAVE
+		dataType: string
+		lineageTag: e0f4e2c9-8f58-419d-b2df-a4b4ea9757ce
+		summarizeBy: none
+		sourceColumn: CHAVE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DataHoraEmPesquisa
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f52b61ec-53e3-4de7-acf0-4e53bcba9ead
+		summarizeBy: none
+		sourceColumn: DataHoraEmPesquisa
+
+		annotation SummarizationSetBy = Automatic
+
+	partition '81EM PESQUISA' = m
+		mode: import
+		queryGroup: 'Tabelas GR'
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\flavi\OneDrive\001\Ocorrencias\Ocorrencias - EM PESQUISA.xlsx"), null, true),
+				    Sheet1_Sheet = Fonte{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"NUMERO_COLETA", Int64.Type}, {"COTACAO", Int64.Type}, {"DATA_ULTIMA_OCORRENCIA", type date}, {"HORA_ULTIMA_OCORRENCIA", type time}, {"USUARIO_ULTIMA_OCORRENCIA", type text}, {"ULTIMA_OCORRENCIA", type text}, {"CHAVE", type text}}),
+				    #"Duplicatas Removidas" = Table.Distinct(#"Tipo Alterado", {"NUMERO_COLETA"}),
+				    #"Duplicatas Removidas1" = Table.Distinct(#"Duplicatas Removidas", {"NUMERO_COLETA"}),
+				    #"Linhas Classificadas" = Table.Sort(#"Duplicatas Removidas1",{{"DATA_ULTIMA_OCORRENCIA", Order.Descending}}),
+				    #"Coluna Mesclada Inserida" = Table.AddColumn(#"Linhas Classificadas", "DataHoraEmPesquisa", each Text.Combine({Text.From([NUMERO_COLETA], "pt-BR"), Text.From([DATA_ULTIMA_OCORRENCIA], "pt-BR"), Text.From([HORA_ULTIMA_OCORRENCIA], "pt-BR")}, " "), type text),
+				    #"Texto Extraído Após o Delimitador" = Table.TransformColumns(#"Coluna Mesclada Inserida", {{"DataHoraEmPesquisa", each Text.AfterDelimiter(_, " "), type text}}),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Texto Extraído Após o Delimitador",{{"DataHoraEmPesquisa", type datetime}})
+				in
+				    #"Tipo Alterado1"
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

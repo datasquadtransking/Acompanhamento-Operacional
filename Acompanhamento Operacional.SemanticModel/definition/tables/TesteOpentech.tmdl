@@ -1,0 +1,599 @@
+table TesteOpentech
+	lineageTag: 5d39d769-a423-4e24-a900-e176ce839fc5
+
+	column 'Tipo do veículo'
+		dataType: string
+		lineageTag: d6b9e542-ac00-4e98-945f-6d095af5cc75
+		summarizeBy: none
+		sourceColumn: Tipo do veículo
+
+		annotation SummarizationSetBy = Automatic
+
+	column Transportadora
+		dataType: string
+		lineageTag: 5ccac1f7-1ba8-45f2-825c-74e2baa2523a
+		summarizeBy: none
+		sourceColumn: Transportadora
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Embarcador da  viagem'
+		dataType: string
+		lineageTag: 8a8ce427-ee6e-4fef-a76a-985fd16295fe
+		summarizeBy: none
+		sourceColumn: Embarcador da  viagem
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cliente monitoração'
+		dataType: string
+		lineageTag: ce2223d2-1af3-4ee1-b65f-439f04465781
+		summarizeBy: none
+		sourceColumn: Cliente monitoração
+
+		annotation SummarizationSetBy = Automatic
+
+	column Conjunto
+		dataType: string
+		lineageTag: f87cf591-267f-4c51-aff2-5677ebc04fe4
+		summarizeBy: none
+		sourceColumn: Conjunto
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Placa veículo'
+		dataType: string
+		lineageTag: 92ee9443-5787-44b3-b680-204de00f2e17
+		summarizeBy: none
+		sourceColumn: Placa veículo
+
+		annotation SummarizationSetBy = Automatic
+
+	column Frota
+		dataType: string
+		lineageTag: c55efb5c-0098-4c8d-ab5a-0c6b2c79ccdc
+		summarizeBy: none
+		sourceColumn: Frota
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Placa carreta'
+		dataType: string
+		lineageTag: 7656a012-59b2-488e-bb8a-2e9734ed2ac8
+		summarizeBy: none
+		sourceColumn: Placa carreta
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Aut. de embarque'
+		dataType: int64
+		formatString: 0
+		lineageTag: 849b5fac-d46c-4ab6-98ac-b34614a50d69
+		summarizeBy: sum
+		sourceColumn: Aut. de embarque
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Frota carreta'
+		dataType: string
+		lineageTag: 2444e3a0-04b1-4be0-baf0-dd539238f9b3
+		summarizeBy: none
+		sourceColumn: Frota carreta
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Placa carreta 2'
+		dataType: string
+		lineageTag: e07eef18-adfe-4a97-9061-22e52afd5fe8
+		summarizeBy: none
+		sourceColumn: Placa carreta 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Frota carreta 2'
+		dataType: string
+		lineageTag: 4280ae66-7647-470b-9726-e57b7e153668
+		summarizeBy: none
+		sourceColumn: Frota carreta 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nº rastreador cavalo'
+		dataType: int64
+		formatString: 0
+		lineageTag: 65a6276a-6a62-49c5-b019-91176bc1751d
+		summarizeBy: sum
+		sourceColumn: Nº rastreador cavalo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Emp. tecnologia cavalo'
+		dataType: string
+		lineageTag: 93dab4a2-2175-4216-8405-df3099eb4f4e
+		summarizeBy: none
+		sourceColumn: Emp. tecnologia cavalo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nº rastreador carreta'
+		dataType: string
+		lineageTag: 63752de2-cbc6-48d7-8921-02d5e0c80668
+		summarizeBy: none
+		sourceColumn: Nº rastreador carreta
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Emp. tecnologia carreta'
+		dataType: string
+		lineageTag: 255169f4-9217-419e-a101-1761c37590e1
+		summarizeBy: none
+		sourceColumn: Emp. tecnologia carreta
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Última posição'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: db50e60d-bda2-4c33-9a82-f0cc73ac33e9
+		summarizeBy: none
+		sourceColumn: Última posição
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Latitude última posição'
+		dataType: double
+		lineageTag: 6b394c05-2ff8-4d29-bade-abe643f0461b
+		summarizeBy: sum
+		sourceColumn: Latitude última posição
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Longitude última posição'
+		dataType: double
+		lineageTag: 2cd69e3d-a734-406c-ad86-95dde5e51885
+		summarizeBy: sum
+		sourceColumn: Longitude última posição
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Posição anterior'
+		dataType: double
+		lineageTag: 882d9603-1af0-45b4-bf86-63d66e54455b
+		summarizeBy: sum
+		sourceColumn: Posição anterior
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Latitude posição anterior'
+		dataType: double
+		lineageTag: f55d93ec-9870-4a1d-8289-3c97aa54ab84
+		summarizeBy: sum
+		sourceColumn: Latitude posição anterior
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Longitude posição anterior'
+		dataType: double
+		lineageTag: af520576-aa23-47d9-9fba-6036e016f8ec
+		summarizeBy: sum
+		sourceColumn: Longitude posição anterior
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'CPF motorista'
+		dataType: int64
+		formatString: 0
+		lineageTag: b0f029b6-e1d7-49e3-9d05-48975ee68dc2
+		summarizeBy: sum
+		sourceColumn: CPF motorista
+
+		annotation SummarizationSetBy = Automatic
+
+	column Motorista
+		dataType: string
+		lineageTag: efcb4b30-4fdb-4fa8-8f6a-f2eae9bd6399
+		summarizeBy: none
+		sourceColumn: Motorista
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CPF motorista 2'
+		dataType: string
+		lineageTag: 964924f8-64b4-473e-87ec-166288dd81cc
+		summarizeBy: none
+		sourceColumn: CPF motorista 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Motorista 2'
+		dataType: string
+		lineageTag: ba86feb3-f6d0-4c61-94f3-1f0cc0390b15
+		summarizeBy: none
+		sourceColumn: Motorista 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cliente viagem'
+		dataType: string
+		lineageTag: f974011c-b944-44db-8534-cd42ce5d0fcb
+		summarizeBy: none
+		sourceColumn: Cliente viagem
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Valor carga (R$)'
+		dataType: double
+		lineageTag: f15924c3-d285-486d-9b31-d180b30621b3
+		summarizeBy: sum
+		sourceColumn: Valor carga (R$)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Tipo monitoração'
+		dataType: string
+		lineageTag: bbddb781-6520-49cb-97aa-4a45548fc6f3
+		summarizeBy: none
+		sourceColumn: Tipo monitoração
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cidade origem'
+		dataType: string
+		lineageTag: 237d8b95-7234-49e9-b8cb-89b3fcdc4901
+		summarizeBy: none
+		sourceColumn: Cidade origem
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cidade destino'
+		dataType: string
+		lineageTag: ec363e08-e6b5-452a-a861-ab278763a7a2
+		summarizeBy: none
+		sourceColumn: Cidade destino
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Situação viagem'
+		dataType: string
+		lineageTag: 0d8a236d-0993-4ea4-b63c-f382f4769681
+		summarizeBy: none
+		sourceColumn: Situação viagem
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tipo operação documento'
+		dataType: string
+		lineageTag: 1095e70d-148f-46f1-b57d-bd7d224e2147
+		summarizeBy: none
+		sourceColumn: Tipo operação documento
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Situação ignição'
+		dataType: string
+		lineageTag: ed0f1063-8782-46ac-9074-2da873dd8b40
+		summarizeBy: none
+		sourceColumn: Situação ignição
+
+		annotation SummarizationSetBy = Automatic
+
+	column Direção
+		dataType: string
+		lineageTag: 4daac669-3947-4cf8-9b75-906df03eac84
+		summarizeBy: none
+		sourceColumn: Direção
+
+		annotation SummarizationSetBy = Automatic
+
+	column Posição
+		dataType: string
+		lineageTag: b125cebb-426f-4259-b83e-aac984e561a7
+		summarizeBy: none
+		sourceColumn: Posição
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Minha referência'
+		dataType: string
+		lineageTag: fd03c8e3-7a16-469a-bf71-6036abf99ed9
+		summarizeBy: none
+		sourceColumn: Minha referência
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Referência posição cidade'
+		dataType: string
+		lineageTag: 0f6ce80d-1e0a-4517-afee-9491f9d0479e
+		summarizeBy: none
+		sourceColumn: Referência posição cidade
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Previsão início(BRA)'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ecc6e7c4-e191-4124-97cc-1418dc02727b
+		summarizeBy: none
+		sourceColumn: Previsão início(BRA)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Previsão fim(BRA)'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5f06532a-b727-4416-8436-4b082b5a278d
+		summarizeBy: none
+		sourceColumn: Previsão fim(BRA)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Inicio posição'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e080d7b4-753e-4c33-8caf-eefb8ff4d717
+		summarizeBy: none
+		sourceColumn: Inicio posição
+
+		annotation SummarizationSetBy = Automatic
+
+	column Produto(s)
+		dataType: string
+		lineageTag: 7a276e96-b9e7-4b77-a269-95d006bc8864
+		summarizeBy: none
+		sourceColumn: Produto(s)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Última cidade de destino'
+		dataType: string
+		lineageTag: 27a0e9b6-86f7-465a-8bf7-f4bf541dcee6
+		summarizeBy: none
+		sourceColumn: Última cidade de destino
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Situação do veículo'
+		dataType: string
+		lineageTag: 1760ce57-ec9c-459c-aeef-bdec096268bd
+		summarizeBy: none
+		sourceColumn: Situação do veículo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tempo total de viagem'
+		dataType: string
+		lineageTag: a556ec10-1c63-48b2-a72d-ffd773cd409f
+		summarizeBy: none
+		sourceColumn: Tempo total de viagem
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Km Prevista'
+		dataType: int64
+		lineageTag: 68bcb8c8-5c70-4755-a703-c5fd0c00948a
+		summarizeBy: sum
+		sourceColumn: Km Prevista
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Km Restante'
+		dataType: int64
+		lineageTag: 2ae51c32-1b36-42f6-ac21-89831491ad41
+		summarizeBy: sum
+		sourceColumn: Km Restante
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Alvo
+		dataType: string
+		lineageTag: 40e06f06-28f1-45c0-b640-5a7077b65a04
+		summarizeBy: none
+		sourceColumn: Alvo
+
+		annotation SummarizationSetBy = Automatic
+
+	column '% conclusão da viagem'
+		dataType: int64
+		formatString: 0
+		lineageTag: edd44587-97f6-497f-9fab-0d8465430b2c
+		summarizeBy: sum
+		sourceColumn: % conclusão da viagem
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tipo de alvo'
+		dataType: string
+		lineageTag: 419aaabb-481c-4956-81c9-2140141509a4
+		summarizeBy: none
+		sourceColumn: Tipo de alvo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data entrada alvo'
+		dataType: double
+		lineageTag: 289da610-103d-4119-a91f-135487eb72bf
+		summarizeBy: sum
+		sourceColumn: Data entrada alvo
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Tempo no alvo'
+		dataType: string
+		lineageTag: c44ed092-f3c0-4d65-91e0-665efdebe2ed
+		summarizeBy: none
+		sourceColumn: Tempo no alvo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Km Percorrida'
+		dataType: int64
+		lineageTag: c7b12b4b-fd85-4eab-add4-649d932ba132
+		summarizeBy: sum
+		sourceColumn: Km Percorrida
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Tipo de cavalo'
+		dataType: string
+		lineageTag: b32309b0-80fd-49bb-87a3-fbfe8a056a5c
+		summarizeBy: none
+		sourceColumn: Tipo de cavalo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tipo de carreta 1'
+		dataType: string
+		lineageTag: 219a7ff3-27b4-4ae5-952d-7ca08cd0ce5a
+		summarizeBy: none
+		sourceColumn: Tipo de carreta 1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tipo de carreta 2'
+		dataType: string
+		lineageTag: 3767ebf8-b548-4b67-9e0a-ee7a91aa3650
+		summarizeBy: none
+		sourceColumn: Tipo de carreta 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Prox. destinatário'
+		dataType: string
+		lineageTag: 0a7c3882-398f-422a-b93c-df5e74507f9a
+		summarizeBy: none
+		sourceColumn: Prox. destinatário
+
+		annotation SummarizationSetBy = Automatic
+
+	column Documento
+		dataType: string
+		lineageTag: 0ecb1bc4-0f6a-4943-ab28-5b19f075be0a
+		summarizeBy: none
+		sourceColumn: Documento
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cid. prox. destinatário'
+		dataType: string
+		lineageTag: 936af2cb-7343-4044-ae96-9b6974f11c24
+		summarizeBy: none
+		sourceColumn: Cid. prox. destinatário
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Km restante reta (1.18)'
+		dataType: int64
+		lineageTag: 9a2bc210-6ad0-4ca6-b4a0-701125c0e719
+		summarizeBy: sum
+		sourceColumn: Km restante reta (1.18)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Estado destino'
+		dataType: string
+		lineageTag: 01718a93-5f0b-4ed7-82d7-611f3226d961
+		summarizeBy: none
+		sourceColumn: Estado destino
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Estado posição'
+		dataType: string
+		lineageTag: e61b3cb9-b400-4ab7-bdc2-6382b8096bc1
+		summarizeBy: none
+		sourceColumn: Estado posição
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sit. veículo'
+		dataType: string
+		lineageTag: e5fcd608-740c-46b1-8615-0b07ec870fec
+		summarizeBy: none
+		sourceColumn: Sit. veículo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operação do cliente'
+		dataType: string
+		lineageTag: e010af0a-d42e-4668-ab25-5e090141a77a
+		summarizeBy: none
+		sourceColumn: Operação do cliente
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unidade responsável'
+		dataType: string
+		lineageTag: 290477ac-daad-4ea7-bb2d-8cac1e7a756e
+		summarizeBy: none
+		sourceColumn: Unidade responsável
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data início retorno'
+		dataType: string
+		lineageTag: 64e311e1-66ab-4e24-b63f-7815467fc401
+		summarizeBy: none
+		sourceColumn: Data início retorno
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Km total retorno'
+		dataType: int64
+		formatString: 0
+		lineageTag: dbe38d23-668f-47a6-a261-887ffd2c42b1
+		summarizeBy: sum
+		sourceColumn: Km total retorno
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Situação operação'
+		dataType: string
+		lineageTag: aa50d3be-172b-414c-981a-9550f0df2229
+		summarizeBy: none
+		sourceColumn: Situação operação
+
+		annotation SummarizationSetBy = Automatic
+
+	partition TesteOpentech = m
+		mode: import
+		queryGroup: 'TABELAS PADRÃO'
+		source =
+				let
+				    Fonte = Folder.Files("C:\Users\flavi\OneDrive\001\TesteOpentech"),
+				    #"Arquivos Ocultos Filtrados1" = Table.SelectRows(Fonte, each [Attributes]?[Hidden]? <> true),
+				    #"Invocar Função Personalizada1" = Table.AddColumn(#"Arquivos Ocultos Filtrados1", "Transformar Arquivo (4)", each #"Transformar Arquivo (4)"([Content])),
+				    #"Colunas Renomeadas1" = Table.RenameColumns(#"Invocar Função Personalizada1", {"Name", "Nome da Origem"}),
+				    #"Arquivos Ocultos Filtrados2" = Table.SelectRows(#"Colunas Renomeadas1", each [Attributes]?[Hidden]? <> true),
+				    #"Invocar Função Personalizada2" = Table.AddColumn(#"Arquivos Ocultos Filtrados2", "Transformar Arquivo (5)", each #"Transformar Arquivo (5)"([Content])),
+				    #"Outras Colunas Removidas1" = Table.SelectColumns(#"Invocar Função Personalizada2", {"Transformar Arquivo (5)"}),
+				    #"Coluna de Tabela Expandida1" = Table.ExpandTableColumn(#"Outras Colunas Removidas1", "Transformar Arquivo (5)", Table.ColumnNames(#"Transformar Arquivo (5)"(#"Arquivo de Amostra (5)"))),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Coluna de Tabela Expandida1",{{"Tipo do veículo", type text}, {"Transportadora", type text}, {"Embarcador da  viagem", type text}, {"Cliente monitoração", type text}, {"Conjunto", type any}, {"Placa veículo", type text}, {"Frota", type text}, {"Placa carreta", type text}, {"Aut. de embarque", Int64.Type}, {"Frota carreta", type text}, {"Placa carreta 2", type any}, {"Frota carreta 2", type any}, {"Nº rastreador cavalo", Int64.Type}, {"Emp. tecnologia cavalo", type text}, {"Nº rastreador carreta", type any}, {"Emp. tecnologia carreta", type any}, {"Última posição", type datetime}, {"Latitude última posição", type number}, {"Longitude última posição", type number}, {"Posição anterior", type number}, {"Latitude posição anterior", type number}, {"Longitude posição anterior", type number}, {"CPF motorista", Int64.Type}, {"Motorista", type text}, {"CPF motorista 2", type any}, {"Motorista 2", type any}, {"Cliente viagem", type text}, {"Valor carga (R$)", type number}, {"Tipo monitoração", type text}, {"Cidade origem", type text}, {"Cidade destino", type text}, {"Situação viagem", type text}, {"Tipo operação documento", type text}, {"Situação ignição", type text}, {"Direção", type text}, {"Posição", type text}, {"Minha referência", type any}, {"Referência posição cidade", type text}, {"Previsão início(BRA)", type datetime}, {"Previsão fim(BRA)", type datetime}, {"Inicio posição", type datetime}, {"Produto(s)", type text}, {"Última cidade de destino", type text}, {"Situação do veículo", type text}, {"Tempo total de viagem", type text}, {"Km Prevista", Int64.Type}, {"Km Restante", Int64.Type}, {"Alvo", type text}, {"% conclusão da viagem", Int64.Type}, {"Tipo de alvo", type text}, {"Data entrada alvo", type number}, {"Tempo no alvo", type text}, {"Km Percorrida", Int64.Type}, {"Tipo de cavalo", type text}, {"Tipo de carreta 1", type text}, {"Tipo de carreta 2", type any}, {"Prox. destinatário", type text}, {"Documento", type text}, {"Cid. prox. destinatário", type text}, {"Km restante reta (1.18)", Int64.Type}, {"Estado destino", type text}, {"Estado posição", type text}, {"Sit. veículo", type any}, {"Operação do cliente", type text}, {"Unidade responsável", type text}, {"Data início retorno", type any}, {"Km total retorno", Int64.Type}, {"Situação operação", type any}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

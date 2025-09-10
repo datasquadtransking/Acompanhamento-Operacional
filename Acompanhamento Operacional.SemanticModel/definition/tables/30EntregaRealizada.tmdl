@@ -1,0 +1,95 @@
+table 30EntregaRealizada
+	lineageTag: cdf8ebfb-91f6-4842-ba8d-2fccc0d3c7c1
+
+	column NUMERO_COLETA
+		dataType: int64
+		formatString: 0
+		lineageTag: 6a45fc5a-0545-4b49-ab9d-9d797f59e37c
+		summarizeBy: none
+		sourceColumn: NUMERO_COLETA
+
+		annotation SummarizationSetBy = Automatic
+
+	column COTACAO
+		dataType: int64
+		formatString: 0
+		lineageTag: 7a1c788f-a5ae-4ac3-95ff-01611e47d7c4
+		summarizeBy: sum
+		sourceColumn: COTACAO
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATA_ULTIMA_OCORRENCIA
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: b7d6b58b-ef7c-4000-b796-aa40ff162556
+		summarizeBy: none
+		sourceColumn: DATA_ULTIMA_OCORRENCIA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column HORA_ULTIMA_OCORRENCIA
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: d121f847-e945-4b1f-97e1-0ab859c0f6d8
+		summarizeBy: none
+		sourceColumn: HORA_ULTIMA_OCORRENCIA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column USUARIO_ULTIMA_OCORRENCIA
+		dataType: string
+		lineageTag: 49bba08e-73ed-48f1-b407-9d7439b4e4a1
+		summarizeBy: none
+		sourceColumn: USUARIO_ULTIMA_OCORRENCIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column ULTIMA_OCORRENCIA
+		dataType: string
+		lineageTag: 3bb8fe5f-4a2c-49a3-ac68-50b30a96746b
+		summarizeBy: none
+		sourceColumn: ULTIMA_OCORRENCIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column CHAVE
+		dataType: string
+		lineageTag: 38512dd7-d723-4517-9cc7-1c9dd1eebdba
+		summarizeBy: none
+		sourceColumn: CHAVE
+
+		annotation SummarizationSetBy = Automatic
+
+	column 30DataHoraValidaçãoFinal
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4a911ded-8992-4a83-a7d3-f948a7dee091
+		summarizeBy: none
+		sourceColumn: 30DataHoraValidaçãoFinal
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 30EntregaRealizada = m
+		mode: import
+		queryGroup: 'TABELAS PADRÃO'
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\flavi\OneDrive\001\Ocorrencias\Ocorrencias - ENTREGA REALIZADA.xlsx"), null, true),
+				    Sheet1_Sheet = Fonte{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"NUMERO_COLETA", Int64.Type}, {"COTACAO", Int64.Type}, {"DATA_ULTIMA_OCORRENCIA", type date}, {"HORA_ULTIMA_OCORRENCIA", type time}, {"USUARIO_ULTIMA_OCORRENCIA", type text}, {"ULTIMA_OCORRENCIA", type text}, {"CHAVE", type text}}),
+				    #"Coluna Mesclada Inserida" = Table.AddColumn(#"Tipo Alterado", "30DataHoraValidaçãoFinal", each Text.Combine({Text.From([DATA_ULTIMA_OCORRENCIA], "pt-BR"), Text.From([HORA_ULTIMA_OCORRENCIA], "pt-BR")}, " "), type text),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Coluna Mesclada Inserida",{{"30DataHoraValidaçãoFinal", type datetime}}),
+				    #"Duplicatas Removidas" = Table.Distinct(#"Tipo Alterado1", {"COTACAO"})
+				in
+				    #"Duplicatas Removidas"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

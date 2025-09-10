@@ -1,0 +1,852 @@
+table dManifestos
+	lineageTag: 49f2b3c6-cbbe-4068-9329-3ef47cde9370
+
+	measure QtdManifestos = CALCULATE(DISTINCTCOUNT(dManifestos[NUM_MANIF]),dManifestos[ABERTO?]="SIM")
+		formatString: 0
+		lineageTag: 46201f81-7c76-47f2-8105-d1cdb54f3341
+
+	measure ManCurvaB = ```
+			
+			VAR Resultado =
+			    CALCULATE(
+			        DISTINCTCOUNT(dManifestos[NUM_MANIF]),
+			        FILTER(
+			            ALL(dCurva), -- ignora o contexto atual da dCurva
+			            dCurva[CURVA] = "B"
+			        )
+			    )
+			RETURN
+			    IF(ISBLANK(Resultado), 0, Resultado)
+			
+			```
+		formatString: 0
+		lineageTag: aac3e95c-a1c6-45d9-b5b7-34ae827af4e3
+
+	measure Medida
+		lineageTag: 9f3b1418-9176-4d7a-b644-ed872819e0fd
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	measure ManFluxoDedicado = ```
+			
+			VAR Resultado =
+			    CALCULATE(
+			        DISTINCTCOUNT(dManifestos[NUM_MANIF]),
+			        dManifestos[CLASSIFICACAO_CLIENTE] = "FLUXO DEDICADO"
+			    )
+			RETURN
+			    IF(ISBLANK(Resultado), 0, Resultado)
+			
+			```
+		formatString: 0
+		lineageTag: 7d1e9460-8ca3-4f88-99a4-d1a52eb3faed
+
+	measure ManSemAgrupar = ```
+			
+			VAR Resultado =
+			    CALCULATE(
+			        DISTINCTCOUNT(dManifestos[NUM_MANIF]),
+			        dManifestos[CLASSIFICACAO_CLIENTE] = "Cliente S/ AGRUPAR"
+			    )
+			RETURN
+			    IF(ISBLANK(Resultado), 0, Resultado)
+			
+			```
+		formatString: 0
+		lineageTag: 86d169ae-1399-4fa4-ac81-d7d29d05ddee
+
+	column NUM_MANIF
+		dataType: string
+		lineageTag: d9da1b5e-0e71-4cb1-9219-19985c78e4be
+		summarizeBy: none
+		sourceColumn: NUM_MANIF
+
+		annotation SummarizationSetBy = Automatic
+
+	column DEST_MANIF
+		dataType: string
+		lineageTag: ffd8216c-703d-44bd-a6b9-743c4b7f9347
+		summarizeBy: none
+		sourceColumn: DEST_MANIF
+
+		annotation SummarizationSetBy = Automatic
+
+	column CIDADE_UF_DEST
+		dataType: string
+		lineageTag: 2741b6c7-ba48-4060-8358-e59873e24a93
+		summarizeBy: none
+		sourceColumn: CIDADE_UF_DEST
+
+		annotation SummarizationSetBy = Automatic
+
+	column EMIS_MANIF
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 2e2f01f7-ff02-43ef-bc13-8994e393a201
+		summarizeBy: none
+		sourceColumn: EMIS_MANIF
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column DIA_SAIDA_MANIF
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 077e7631-14f9-40ee-a6e4-31fe72006ec0
+		summarizeBy: none
+		sourceColumn: DIA_SAIDA_MANIF
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column HORA_SAIDA_MANIF
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: de1bec6e-dad4-46ef-8363-37f95603e73b
+		summarizeBy: none
+		sourceColumn: HORA_SAIDA_MANIF
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column DIA_CHEGADA_MANIF
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 01c5070a-cdbf-4441-8b5b-1d54367ca432
+		summarizeBy: none
+		sourceColumn: DIA_CHEGADA_MANIF
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column HORA_CHEGADA_MANIF
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: c9f393ee-08ea-493b-b377-cfd3919eeab9
+		summarizeBy: none
+		sourceColumn: HORA_CHEGADA_MANIF
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column PLACA_CAVALO
+		dataType: string
+		lineageTag: b1d69bdb-5dc7-480e-acae-05030e008bb7
+		summarizeBy: none
+		sourceColumn: PLACA_CAVALO
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROPRIETARIO_CAVALO
+		dataType: string
+		lineageTag: 1944df15-dc56-47fc-b2b4-c9a8b5e9f912
+		summarizeBy: none
+		sourceColumn: PROPRIETARIO_CAVALO
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLACA_CARRETA
+		dataType: string
+		lineageTag: 3c93d110-bb1a-4be8-b709-fa5bdaaf490f
+		summarizeBy: none
+		sourceColumn: PLACA_CARRETA
+
+		annotation SummarizationSetBy = Automatic
+
+	column MOTORISTA
+		dataType: string
+		lineageTag: 527396ad-4c42-45f1-b247-8d18c973faf8
+		summarizeBy: none
+		sourceColumn: MOTORISTA
+
+		annotation SummarizationSetBy = Automatic
+
+	column M3
+		dataType: int64
+		formatString: 0
+		lineageTag: f84fdbde-fe39-4e44-bbb2-3d2e22423dc7
+		summarizeBy: sum
+		sourceColumn: M3
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PESO CALCULO (KG)'
+		dataType: int64
+		formatString: 0
+		lineageTag: fb255a68-d18b-421e-a2fc-22bb5e921274
+		summarizeBy: sum
+		sourceColumn: PESO CALCULO (KG)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PESO REAL (KG)'
+		dataType: double
+		lineageTag: 95535422-8c90-4f52-b6b2-553b27f4f3eb
+		summarizeBy: sum
+		sourceColumn: PESO REAL (KG)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'MERCADORIA CIF'
+		dataType: double
+		lineageTag: 02425f07-c507-40ea-b1df-0c995eedc4ad
+		summarizeBy: sum
+		sourceColumn: MERCADORIA CIF
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'MERCADORIA FOB'
+		dataType: double
+		lineageTag: ab8f9731-633b-4173-8506-9d877983c410
+		summarizeBy: sum
+		sourceColumn: MERCADORIA FOB
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MERCADORIA-R$
+		dataType: double
+		lineageTag: fe05b187-185a-40c3-a723-8fc6298bcaf2
+		summarizeBy: sum
+		sourceColumn: MERCADORIA-R$
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'MERCADORIA AVERBADA'
+		dataType: double
+		lineageTag: c70fd43e-d4a6-42fb-ab2f-4163d847d1c8
+		summarizeBy: sum
+		sourceColumn: MERCADORIA AVERBADA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column NUM_CTRB
+		dataType: string
+		lineageTag: e05c705a-18c9-4831-81aa-447a724f28f9
+		summarizeBy: none
+		sourceColumn: NUM_CTRB
+
+		annotation SummarizationSetBy = Automatic
+
+	column DEST_CTRB
+		dataType: string
+		lineageTag: f574d5ef-58d5-4185-881a-6cbbc12bccf5
+		summarizeBy: none
+		sourceColumn: DEST_CTRB
+
+		annotation SummarizationSetBy = Automatic
+
+	column CTRB-R$
+		dataType: double
+		lineageTag: f7a719e5-b8fc-4a6e-a691-24214307426c
+		summarizeBy: sum
+		sourceColumn: CTRB-R$
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PEDAGIO_CTRB-R$
+		dataType: double
+		lineageTag: ca6f72ef-5c53-4798-a2f5-a66ba9c5dc29
+		summarizeBy: sum
+		sourceColumn: PEDAGIO_CTRB-R$
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column NUM_OS
+		dataType: string
+		lineageTag: 7063b5d9-e8ef-4a39-9130-a82445027a13
+		summarizeBy: none
+		sourceColumn: NUM_OS
+
+		annotation SummarizationSetBy = Automatic
+
+	column DEST_OS
+		dataType: string
+		lineageTag: b0180081-e885-4aa3-86e5-7a15cf37f301
+		summarizeBy: none
+		sourceColumn: DEST_OS
+
+		annotation SummarizationSetBy = Automatic
+
+	column OS-R$
+		dataType: int64
+		formatString: 0
+		lineageTag: b062f66b-9dd6-4964-8a50-0683429a363c
+		summarizeBy: sum
+		sourceColumn: OS-R$
+
+		annotation SummarizationSetBy = Automatic
+
+	column PEDAGIO_OS-R$
+		dataType: int64
+		formatString: 0
+		lineageTag: ddf713f9-daa5-4bde-b263-5ff705c6cc19
+		summarizeBy: sum
+		sourceColumn: PEDAGIO_OS-R$
+
+		annotation SummarizationSetBy = Automatic
+
+	column FRT-CIF-R$
+		dataType: double
+		lineageTag: c7b1860e-3509-4169-a1c7-e6d204aaee1a
+		summarizeBy: sum
+		sourceColumn: FRT-CIF-R$
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column FRT-FOB-R$
+		dataType: double
+		lineageTag: 545a1b36-db0a-428c-85bf-1cdd5d28da11
+		summarizeBy: sum
+		sourceColumn: FRT-FOB-R$
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column FRETE-R$
+		dataType: double
+		lineageTag: 1baad61e-b0d9-4b8b-bb37-3e27cf889068
+		summarizeBy: sum
+		sourceColumn: FRETE-R$
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ICMS-R$
+		dataType: double
+		lineageTag: 8c9e9533-e28f-4320-bacc-09e109a9467e
+		summarizeBy: sum
+		sourceColumn: ICMS-R$
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column QTDE_CTRC
+		dataType: int64
+		formatString: 0
+		lineageTag: a9833346-6696-4989-806b-f55e7991d692
+		summarizeBy: sum
+		sourceColumn: QTDE_CTRC
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DATA INICIO DESCARGA'
+		dataType: string
+		lineageTag: 27f52e51-5634-48c6-9af9-9eb46d256735
+		summarizeBy: none
+		sourceColumn: DATA INICIO DESCARGA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'HORA INICIO DESCARGA'
+		dataType: string
+		lineageTag: 4f9e580d-0ff6-492e-884a-8c72446e3357
+		summarizeBy: none
+		sourceColumn: HORA INICIO DESCARGA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DATA FIM DESCARGA'
+		dataType: string
+		lineageTag: c1497c6b-1b8e-4bbb-b4be-a7438c198d22
+		summarizeBy: none
+		sourceColumn: DATA FIM DESCARGA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'HORA FIM DESCARGA'
+		dataType: string
+		lineageTag: 2468e74e-7256-42a3-a65b-4be97ad478cb
+		summarizeBy: none
+		sourceColumn: HORA FIM DESCARGA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CONFERENTE CARGA'
+		dataType: string
+		lineageTag: edfa0ce4-79ad-4d5d-bf30-23fe487968ac
+		summarizeBy: none
+		sourceColumn: CONFERENTE CARGA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CONFERENTE DESCARGA'
+		dataType: string
+		lineageTag: a63eabd0-1896-47c0-a035-2e1f271d36e3
+		summarizeBy: none
+		sourceColumn: CONFERENTE DESCARGA
+
+		annotation SummarizationSetBy = Automatic
+
+	column QTDE_PALLETS
+		dataType: int64
+		formatString: 0
+		lineageTag: cb930332-00b2-483f-9bef-9b49a6de0dcc
+		summarizeBy: sum
+		sourceColumn: QTDE_PALLETS
+
+		annotation SummarizationSetBy = Automatic
+
+	column QTDE_CHAPAS
+		dataType: int64
+		formatString: 0
+		lineageTag: 446e976c-582d-436c-9d0f-78f273b8f853
+		summarizeBy: sum
+		sourceColumn: QTDE_CHAPAS
+
+		annotation SummarizationSetBy = Automatic
+
+	column QTDE_GAIOLAS
+		dataType: int64
+		formatString: 0
+		lineageTag: 4270abf2-64db-4866-8fbc-31a6e4f8a81f
+		summarizeBy: sum
+		sourceColumn: QTDE_GAIOLAS
+
+		annotation SummarizationSetBy = Automatic
+
+	column VOLUMES
+		dataType: int64
+		formatString: 0
+		lineageTag: b5148973-dd2b-441c-809c-b9384b3318b1
+		summarizeBy: sum
+		sourceColumn: VOLUMES
+
+		annotation SummarizationSetBy = Automatic
+
+	column PESO_CALCULO
+		dataType: double
+		lineageTag: c6a148aa-d3fb-48b8-916d-a2491f0b1a00
+		summarizeBy: sum
+		sourceColumn: PESO_CALCULO
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'DATA PREV CHEGADA'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: dc57d9f5-4825-49ad-8cff-201dbd3a8672
+		summarizeBy: none
+		sourceColumn: DATA PREV CHEGADA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'HORA PREV CHEGADA'
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: 551812a7-f3ae-40e7-aa88-6e18c8257b35
+		summarizeBy: none
+		sourceColumn: HORA PREV CHEGADA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column DISTANCIA
+		dataType: int64
+		formatString: 0
+		lineageTag: 2690eb90-f9f8-406e-b9cd-77945f960219
+		summarizeBy: sum
+		sourceColumn: DISTANCIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLACA_CARRETA2
+		dataType: string
+		lineageTag: b0e2a719-24bf-4fe0-aa02-716e21c9569c
+		summarizeBy: none
+		sourceColumn: PLACA_CARRETA2
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIPO_CAVALO
+		dataType: string
+		lineageTag: b78b2e4b-1f36-4209-bb32-0bc2048fb0b0
+		summarizeBy: none
+		sourceColumn: TIPO_CAVALO
+
+		annotation SummarizationSetBy = Automatic
+
+	column FROTA_CAVALO
+		dataType: string
+		lineageTag: 3a1e579c-a4fd-42aa-a4e5-2ff3ba53c588
+		summarizeBy: none
+		sourceColumn: FROTA_CAVALO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SERIE_MDFE
+		dataType: int64
+		formatString: 0
+		lineageTag: 25f61c9f-0d33-4374-ac76-870f442d4458
+		summarizeBy: sum
+		sourceColumn: SERIE_MDFE
+
+		annotation SummarizationSetBy = Automatic
+
+	column MDFE
+		dataType: int64
+		formatString: 0
+		lineageTag: 58bfa778-cbd0-47a1-b569-61f4daa121a4
+		summarizeBy: sum
+		sourceColumn: MDFE
+
+		annotation SummarizationSetBy = Automatic
+
+	column SITUACAO
+		dataType: string
+		lineageTag: 54348dd0-e452-43e5-ad37-3053c24c0675
+		summarizeBy: none
+		sourceColumn: SITUACAO
+
+		annotation SummarizationSetBy = Automatic
+
+	column USUARIO
+		dataType: string
+		lineageTag: 8b401439-0356-4dcc-9b37-77945f67f4f9
+		summarizeBy: none
+		sourceColumn: USUARIO
+
+		annotation SummarizationSetBy = Automatic
+
+	column MOTIVO
+		dataType: string
+		lineageTag: 7b32fec5-8e8c-4ef7-95c9-bac6b6e328e4
+		summarizeBy: none
+		sourceColumn: MOTIVO
+
+		annotation SummarizationSetBy = Automatic
+
+	column CIOT
+		dataType: string
+		lineageTag: e69cf010-b4be-4e66-8d8e-6adbcc320e9d
+		summarizeBy: none
+		sourceColumn: CIOT
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'VALE PEDAGIO(R$)'
+		dataType: int64
+		formatString: 0
+		lineageTag: be1971e8-a3b0-4a10-b923-ada1c6e896ac
+		summarizeBy: sum
+		sourceColumn: VALE PEDAGIO(R$)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'VALE PEDAGIO NRO'
+		dataType: string
+		lineageTag: 15aad56c-4b35-4462-9bd2-5e2252bef5c8
+		summarizeBy: none
+		sourceColumn: VALE PEDAGIO NRO
+
+		annotation SummarizationSetBy = Automatic
+
+	column LACRES
+		dataType: int64
+		formatString: 0
+		lineageTag: ecb4e192-f4b2-4195-bea8-ca399446d953
+		summarizeBy: sum
+		sourceColumn: LACRES
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'MOTORISTA 2'
+		dataType: string
+		lineageTag: 1a761885-13cb-4f3b-86dc-da27fd072964
+		summarizeBy: none
+		sourceColumn: MOTORISTA 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column SMP
+		dataType: string
+		lineageTag: 25bd40b9-1be0-45b8-811f-4de040b45f86
+		summarizeBy: none
+		sourceColumn: SMP
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'NOME CIA AEREA'
+		dataType: string
+		lineageTag: 4af3f58c-38ea-45e8-8430-52f3cc830253
+		summarizeBy: none
+		sourceColumn: NOME CIA AEREA
+
+		annotation SummarizationSetBy = Automatic
+
+	column AWB
+		dataType: string
+		lineageTag: 887ceb34-fc03-426e-ab2b-e3f0b74c8fc7
+		summarizeBy: none
+		sourceColumn: AWB
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'VALOR AWB'
+		dataType: int64
+		formatString: 0
+		lineageTag: 391dacdc-52e1-4f07-96ff-60adfaea95bc
+		summarizeBy: sum
+		sourceColumn: VALOR AWB
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column1
+		dataType: string
+		lineageTag: 6519e848-18d0-4d58-ae63-8d8226924066
+		summarizeBy: none
+		sourceColumn: Column1
+
+		annotation SummarizationSetBy = Automatic
+
+	column HOJE
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: f832440b-8239-45a4-a70e-a7b9f4a620b9
+		summarizeBy: none
+		sourceColumn: HOJE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ABERTO?
+		dataType: string
+		lineageTag: cb61db48-514e-41ab-ace3-524a06b79eff
+		summarizeBy: none
+		sourceColumn: ABERTO?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cliente Pagador'
+		dataType: string
+		lineageTag: 1d41166e-2844-4679-b6eb-ef67f82bc67a
+		summarizeBy: none
+		sourceColumn: Cliente Pagador
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CNPJ Pagador'
+		dataType: string
+		lineageTag: fcba0c69-317b-4043-9c81-b1df157d8966
+		summarizeBy: none
+		sourceColumn: CNPJ Pagador
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CLIENTE PRINCIPAL'
+		dataType: string
+		lineageTag: 9bbaae6a-ed61-4927-a8f9-66f74df1b08f
+		summarizeBy: none
+		sourceColumn: CLIENTE PRINCIPAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLASSIFICACAO_CLIENTE =
+			
+			SWITCH (
+			    dManifestos[CLIENTE PRINCIPAL],
+			    "L4B LOGISTICA LTDA", "OP. SPOT",
+			    "JADLOG LOGISTICA S.A", "OP. SPOT",
+			    "JT EXPRESS BRAZIL LTDA", "FLUXO DEDICADO",
+			    "UPS DO BRASIL REMESSAS E LTDA", "FLUXO DEDICADO",
+			    "EBAZAR.COM.BR. LTDA", "FLUXO DEDICADO",
+			    "MAGAZINE LUIZA S/A - 3764", "FLUXO DEDICADO",
+			    "MAGALU LOG SERVICOS LOGISTICOS", "FLUXO DEDICADO",
+			    "EMPRESA BRASILEIRA DE BEBIDAS", "FLUXO DEDICADO",
+			    "SPOT - TK", "OP. SPOT",
+			    "PANDURATA ALIMENTOS LTDA", "OP. BAUDUCCO",
+			    "SEM AGRUPAR", "CLIENTE S/ AGRUPAR",
+			    "WESTROCK, CELULOSE, PAPEL E EM", "OP. WESTROCK",
+			    "PINHOPO MOAGEM DE MADEIRAS LTD", "OP. SPOT",
+			    "TGL TRANSPORTE", "OP. SPOT",
+			    "PEGAKI TECNOLOGIA DE ENTREGAS", "FLUXO DEDICADO",
+			    "AMAZON SERV DE VAREJO", "FLUXO DEDICADO",
+			    "CARGA LOTAÇÃO"
+			)
+		lineageTag: 5264f1d7-d7c2-4ab8-8a6b-5b6e250fa55c
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column ManCurvaC = ```
+			
+			VAR Resultado =
+			    CALCULATE(
+			        DISTINCTCOUNT(dManifestos[NUM_MANIF]),
+			        FILTER(
+			            ALL(dCurva), -- ignora o contexto atual da dCurva
+			            dCurva[CURVA] = "C"
+			        )
+			    )
+			RETURN
+			    IF(ISBLANK(Resultado), 0, Resultado)
+			
+			```
+		formatString: 0
+		lineageTag: 9a006553-4c07-4d42-80e1-124f02efd094
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIPO_OP_AJUSTADO = ```
+			
+			IF(LEFT(dManifestos[NUM_MANIF], 3) IN {"AVR", "ARJ", "ASP", "DEV", "DRJ", "DSP"}, "Devolução",
+			SWITCH(
+			    TRUE(),
+			
+			    -- Outros tipos de operação continuam abaixo
+			    dManifestos[CLIENTE PRINCIPAL] = "AMAZON LOGISTICA DO BRASIL LTD", "Dedicado",
+			    dManifestos[CLIENTE PRINCIPAL] = "AMAZON SERV DE VAREJO", "Dedicado",
+			    dManifestos[CLIENTE PRINCIPAL] = "MERCADO ENVIOS SERVICOS DE LOG", "Dedicado",
+			    dManifestos[CLIENTE PRINCIPAL] = "SHPX LOGISTICA LTDA.", "Dedicado",
+			    dManifestos[CLIENTE PRINCIPAL] = "VIA VAREJO S/A", "Dedicado",
+			    dManifestos[CLIENTE PRINCIPAL] = "EBAZAR.COM.BR. LTDA", "Dedicado",
+			    dManifestos[CLIENTE PRINCIPAL] = "SEM AGRUPAR", "Sem Agrupar",
+			    
+			
+			    "Carga Lotação"
+			))
+			
+			```
+		lineageTag: 92c1f313-005d-4c6f-b50a-ae6463c061c5
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAGADOR2 =
+			//LOOKUPVALUE(dCTRCS[Cliente Pagador], dCTRCS[Primeiro Manifesto], dManifestos[NUM_MANIF])
+			CALCULATE(
+			    FIRSTNONBLANK('dCTRCS'[Cliente Pagador], 1),
+			    FILTER(
+			        'dCTRCS',
+			        'dCTRCS'[Primeiro Manifesto] = 'dManifestos'[NUM_MANIF]
+			    )
+			)
+		lineageTag: 67d14dac-9046-4b0d-be2a-2b855f832729
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column CTRC1
+		dataType: string
+		lineageTag: 3d760f87-7426-4c94-81bb-e2a7559b4261
+		summarizeBy: none
+		sourceColumn: CTRC1
+
+		annotation SummarizationSetBy = Automatic
+
+	column CTRC2
+		dataType: string
+		lineageTag: 7fefec7f-5eef-4a9c-a52f-ec7bd167c8c0
+		summarizeBy: none
+		sourceColumn: CTRC2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CTRC FINAL' =
+			
+			IF(dManifestos[CTRC1] = "", dManifestos[CTRC2], dManifestos[CTRC1])
+		lineageTag: 902faf8c-b02d-461c-90a6-678ee74c0f11
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLIENTE_PAGADOR =
+			
+			LOOKUPVALUE('dCTRCS'[Cliente Pagador], dCTRCS[Serie/Numero CTRC], dManifestos[CTRC FINAL])
+		lineageTag: 7da03789-0ae5-4a35-b568-1e5a0fafaee8
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLIENTE_PAG_FINAL =
+			
+			IF(dManifestos[CLIENTE_PAGADOR] = "", dManifestos[Cliente Pagador], dManifestos[CLIENTE_PAGADOR])
+		lineageTag: 86c5c2ec-a9a7-4729-b991-49dd51307996
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column CNPJ_PAG =
+			
+			LOOKUPVALUE(dCTRCS[CNPJ Pagador2], dCTRCS[Serie/Numero CTRC], dManifestos[CTRC FINAL])
+		lineageTag: d57bd380-2f02-47b9-9499-bf78cecd9424
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dManifestos = m
+		mode: import
+		queryGroup: 'TABELAS PADRÃO'
+		source = ```
+				let
+				    Fonte = Folder.Files("C:\Users\flavi\OneDrive\002\04-MANIFESTOS"),
+				    #"Arquivos Ocultos Filtrados1" = Table.SelectRows(Fonte, each [Attributes]?[Hidden]? <> true),
+				    #"Invocar Função Personalizada1" = Table.AddColumn(#"Arquivos Ocultos Filtrados1", "Transformar Arquivo (13)", each #"Transformar Arquivo (13)"([Content])),
+				    #"Colunas Renomeadas1" = Table.RenameColumns(#"Invocar Função Personalizada1", {"Name", "Nome da Origem"}),
+				    #"Outras Colunas Removidas1" = Table.SelectColumns(#"Colunas Renomeadas1", {"Nome da Origem", "Transformar Arquivo (13)"}),
+				    #"Coluna de Tabela Expandida1" = Table.ExpandTableColumn(#"Outras Colunas Removidas1", "Transformar Arquivo (13)", Table.ColumnNames(#"Transformar Arquivo (13)"(#"Arquivo de Amostra (13)"))),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Coluna de Tabela Expandida1",{{"Nome da Origem", type text}, {"Column1", Int64.Type}, {"Column2", type text}, {"Column3", type text}, {"Column4", type text}, {"Column5", type text}, {"Column6", type text}, {"Column7", type text}, {"Column8", type text}, {"Column9", type text}, {"Column10", type text}, {"Column11", type text}, {"Column12", type text}, {"Column13", type text}, {"Column14", type text}, {"Column15", type text}, {"Column16", type text}, {"Column17", type text}, {"Column18", type text}, {"Column19", type text}, {"Column20", type text}, {"Column21", type text}, {"Column22", type text}, {"Column23", type text}, {"Column24", type text}, {"Column25", type text}, {"Column26", type text}, {"Column27", type text}, {"Column28", type text}, {"Column29", type text}, {"Column30", type text}, {"Column31", type text}, {"Column32", type text}, {"Column33", type text}, {"Column34", type text}, {"Column35", type text}, {"Column36", type text}, {"Column37", type text}, {"Column38", type text}, {"Column39", type text}, {"Column40", type text}, {"Column41", type text}, {"Column42", type text}, {"Column43", type text}, {"Column44", type text}, {"Column45", type text}, {"Column46", type text}, {"Column47", type text}, {"Column48", type text}, {"Column49", type text}, {"Column50", type text}, {"Column51", type text}, {"Column52", type text}, {"Column53", type text}, {"Column54", type text}, {"Column55", type text}, {"Column56", type text}, {"Column57", type text}, {"Column58", type text}, {"Column59", type text}, {"Column60", type text}, {"Column61", type text}, {"Column62", type text}, {"Column63", type text}, {"Column64", type text}, {"Column65", type any}}),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Tipo Alterado",{"Nome da Origem", "Column1"}),
+				    #"Linhas Superiores Removidas" = Table.Skip(#"Colunas Removidas",1),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Linhas Superiores Removidas", [PromoteAllScalars=true]),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"NUM_MANIF", type text}, {"DEST_MANIF", type text}, {"CIDADE_UF_DEST", type text}, {"EMIS_MANIF", type date}, {"DIA_SAIDA_MANIF", type date}, {"HORA_SAIDA_MANIF", type time}, {"DIA_CHEGADA_MANIF", type date}, {"HORA_CHEGADA_MANIF", type time}, {"PLACA_CAVALO", type text}, {"PROPRIETARIO_CAVALO", type text}, {"PLACA_CARRETA", type text}, {"MOTORISTA", type text}, {"M3", Int64.Type}, {"PESO CALCULO (KG)", Int64.Type}, {"PESO REAL (KG)", type number}, {"MERCADORIA CIF", type number}, {"MERCADORIA FOB", type number}, {"MERCADORIA-R$", type number}, {"MERCADORIA AVERBADA", type number}, {"NUM_CTRB", type text}, {"DEST_CTRB", type text}, {"CTRB-R$", type number}, {"PEDAGIO_CTRB-R$", type number}, {"NUM_OS", type text}, {"DEST_OS", type text}, {"OS-R$", Int64.Type}, {"PEDAGIO_OS-R$", Int64.Type}, {"FRT-CIF-R$", type number}, {"FRT-FOB-R$", type number}, {"FRETE-R$", type number}, {"ICMS-R$", type number}, {"QTDE_CTRC", Int64.Type}, {"DATA INICIO DESCARGA", type text}, {"HORA INICIO DESCARGA", type text}, {"DATA FIM DESCARGA", type text}, {"HORA FIM DESCARGA", type text}, {"CONFERENTE CARGA", type text}, {"CONFERENTE DESCARGA", type text}, {"QTDE_PALLETS", Int64.Type}, {"QTDE_CHAPAS", Int64.Type}, {"QTDE_GAIOLAS", Int64.Type}, {"VOLUMES", Int64.Type}, {"PESO_CALCULO", type number}, {"DATA PREV CHEGADA", type date}, {"HORA PREV CHEGADA", type time}, {"DISTANCIA", Int64.Type}, {"PLACA_CARRETA2", type text}, {"TIPO_CAVALO", type text}, {"FROTA_CAVALO", type text}, {"SERIE_MDFE", Int64.Type}, {"MDFE", Int64.Type}, {"SITUACAO", type text}, {"USUARIO", type text}, {"MOTIVO", type text}, {"CIOT", type text}, {"VALE PEDAGIO(R$)", Int64.Type}, {"VALE PEDAGIO NRO", type text}, {"LACRES", Int64.Type}, {"MOTORISTA 2", type text}, {"SMP", type text}, {"NOME CIA AEREA", type text}, {"AWB", type text}, {"VALOR AWB", Int64.Type}, {"", type any}}),
+				    #"Erros Removidos" = Table.RemoveRowsWithErrors(#"Tipo Alterado1", {"EMIS_MANIF"}),
+				    #"Linhas Filtradas" = Table.SelectRows(#"Erros Removidos", each ([DIA_CHEGADA_MANIF] = null) and ([SITUACAO] <> "CANCELADO " and [SITUACAO] <> "ENCERRADO ") and ([NUM_MANIF] <> "")),
+				    #"Personalização Adicionada" = Table.AddColumn(#"Linhas Filtradas", "HOJE", each DateTime.LocalNow()),
+				    #"Tipo Alterado2" = Table.TransformColumnTypes(#"Personalização Adicionada",{{"HOJE", type date}}),
+				    #"Coluna Condicional Adicionada" = Table.AddColumn(#"Tipo Alterado2", "ABERTO?", each if [DATA PREV CHEGADA] < [HOJE] then "SIM" else "NÃO"),
+				    #"Consultas Mescladas" = Table.NestedJoin(#"Coluna Condicional Adicionada", {"NUM_MANIF"}, dCTRCS, {"Primeiro Manifesto"}, "Bases_455", JoinKind.LeftOuter),
+				    #"Bases_455 Expandido" = Table.ExpandTableColumn(#"Consultas Mescladas", "Bases_455", {"Serie/Numero CTRC", "CNPJ Pagador", "Cliente Pagador"}, {"Serie/Numero CTRC", "CNPJ Pagador", "Cliente Pagador"}),
+				    #"Consultas Mescladas1" = Table.NestedJoin(#"Bases_455 Expandido", {"NUM_MANIF"}, dCTRCS, {"Ultimo Manifesto"}, "Bases_455", JoinKind.LeftOuter),
+				    #"Bases_455 Expandido1" = Table.ExpandTableColumn(#"Consultas Mescladas1", "Bases_455", {"Serie/Numero CTRC", "CNPJ Pagador", "Cliente Pagador"}, {"Bases_455.Serie/Numero CTRC", "Bases_455.CNPJ Pagador", "Bases_455.Cliente Pagador"}),
+				    #"Coluna Condicional Adicionada1" = Table.AddColumn(#"Bases_455 Expandido1", "Personalizar", each if [Cliente Pagador] = [Bases_455.Cliente Pagador] then [Cliente Pagador] else if [Cliente Pagador] = null then [Bases_455.Cliente Pagador] else if [Bases_455.Cliente Pagador] = null then [Cliente Pagador] else null),
+				    Personalizar1 = Table.AddColumn(#"Coluna Condicional Adicionada1", "CNPJ Pagador1", each if [CNPJ Pagador] = [Bases_455.CNPJ Pagador] then [CNPJ Pagador] else if [CNPJ Pagador] = null then [Bases_455.CNPJ Pagador] else if [Bases_455.CNPJ Pagador] = null then [CNPJ Pagador] else null),
+				    #"Colunas Removidas1" = Table.RemoveColumns(Personalizar1,{"CNPJ Pagador", "Cliente Pagador", "Bases_455.CNPJ Pagador", "Bases_455.Cliente Pagador"}),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Colunas Removidas1",{{"Personalizar", "Cliente Pagador"}, {"CNPJ Pagador1", "CNPJ Pagador"}}),
+				    #"Consultas Mescladas2" = Table.NestedJoin(#"Colunas Renomeadas", {"CNPJ Pagador"}, dClientes, {"CNPJ PRINCIPAL.1"}, "dClientes", JoinKind.LeftOuter),
+				    #"dClientes Expandido" = Table.ExpandTableColumn(#"Consultas Mescladas2", "dClientes", {"NOME CLIENTE PRINCIPAL"}, {"dClientes.NOME CLIENTE PRINCIPAL"}),
+				    #"Consultas Mescladas3" = Table.NestedJoin(#"dClientes Expandido", {"CNPJ Pagador"}, dClientes, {"CNPJ CLIENTE.1"}, "dClientes", JoinKind.LeftOuter),
+				    #"dClientes Expandido1" = Table.ExpandTableColumn(#"Consultas Mescladas3", "dClientes", {"NOME CLIENTE PRINCIPAL"}, {"dClientes.NOME CLIENTE PRINCIPAL.1"}),
+				    #"Coluna Condicional Adicionada2" = Table.AddColumn(#"dClientes Expandido1", "CLIENTE PRINCIPAL", each if [dClientes.NOME CLIENTE PRINCIPAL] <> null then [dClientes.NOME CLIENTE PRINCIPAL] 
+				else if [dClientes.NOME CLIENTE PRINCIPAL.1] <> null then [dClientes.NOME CLIENTE PRINCIPAL.1] 
+				else "SEM AGRUPAR"),
+				    #"Colunas Removidas2" = Table.RemoveColumns(#"Coluna Condicional Adicionada2",{"dClientes.NOME CLIENTE PRINCIPAL", "dClientes.NOME CLIENTE PRINCIPAL.1"}),
+				    #"Colunas Renomeadas2" = Table.RenameColumns(#"Colunas Removidas2",{{"Serie/Numero CTRC", "CTRC1"}, {"Bases_455.Serie/Numero CTRC", "CTRC2"}})
+				in
+				    #"Colunas Renomeadas2"
+				```
+
+	annotation PBI_ResultType = Exception
+
+	annotation PBI_NavigationStepName = Navegação
+

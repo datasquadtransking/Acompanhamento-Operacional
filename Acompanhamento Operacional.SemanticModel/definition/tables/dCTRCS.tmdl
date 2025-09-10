@@ -1,0 +1,1210 @@
+table dCTRCS
+	lineageTag: 591d4c68-a112-49ed-8032-612822d18d44
+
+	column 'Serie/Numero CTRC'
+		dataType: string
+		lineageTag: 84405afd-60d9-4bed-9679-67dd9d683906
+		summarizeBy: none
+		sourceColumn: Serie/Numero CTRC
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Serie/Numero CT-e'
+		dataType: int64
+		formatString: 0
+		lineageTag: 8d5bc469-4700-4f89-a997-6f65777c9360
+		summarizeBy: sum
+		sourceColumn: Serie/Numero CT-e
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tipo do Documento'
+		dataType: string
+		lineageTag: 54e28279-5724-4cc5-a315-f9e089230955
+		summarizeBy: none
+		sourceColumn: Tipo do Documento
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Praca Expedidora'
+		dataType: string
+		lineageTag: ba35617c-ef4b-4476-b4ea-bd23e77b6ba7
+		summarizeBy: none
+		sourceColumn: Praca Expedidora
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unidade Emissora'
+		dataType: string
+		lineageTag: 634733f2-85bc-4878-a7f0-a3b20d6ad3cb
+		summarizeBy: none
+		sourceColumn: Unidade Emissora
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data de Emissao'
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 8f00bb50-20e6-4c72-970a-d1ad508e60dd
+		summarizeBy: none
+		sourceColumn: Data de Emissao
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Hora de Emissao'
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: 13a39b93-46b4-4051-a2e3-3b4d09a762e5
+		summarizeBy: none
+		sourceColumn: Hora de Emissao
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column 'Data de Autorizacao'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 2143cb5d-d198-4f35-9525-65b8bb3d03fb
+		summarizeBy: none
+		sourceColumn: Data de Autorizacao
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Hora de Autorizacao'
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: 25dd421c-c18c-4041-a575-979cc8a078e8
+		summarizeBy: none
+		sourceColumn: Hora de Autorizacao
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column Login
+		dataType: string
+		lineageTag: 28ec9577-60c8-445c-a8c8-39b477ad4ebb
+		summarizeBy: none
+		sourceColumn: Login
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Numero de Controle'
+		dataType: int64
+		formatString: 0
+		lineageTag: 50eb1f07-0d7a-4209-be9b-410762cf9520
+		summarizeBy: sum
+		sourceColumn: Numero de Controle
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Placa de Coleta'
+		dataType: string
+		lineageTag: 9626198f-14de-4328-af85-85a24fcc943a
+		summarizeBy: none
+		sourceColumn: Placa de Coleta
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Chave CT-e'
+		dataType: double
+		lineageTag: e031c0d2-e379-4615-97f3-190aa45d28c0
+		summarizeBy: sum
+		sourceColumn: Chave CT-e
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'CNPJ Remetente'
+		dataType: int64
+		formatString: 0
+		lineageTag: 055d671f-e545-4624-b4a8-869caf434b50
+		summarizeBy: sum
+		sourceColumn: CNPJ Remetente
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cliente Remetente'
+		dataType: string
+		lineageTag: bbc735cc-dff5-4f86-8448-940736bac5dd
+		summarizeBy: none
+		sourceColumn: Cliente Remetente
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Endereco do Remetente'
+		dataType: string
+		lineageTag: 206d4025-ef1e-43d0-b82d-47813850c1da
+		summarizeBy: none
+		sourceColumn: Endereco do Remetente
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bairro do Remetente'
+		dataType: string
+		lineageTag: 15e0d7d6-bedc-405f-a824-aabfa01c0a11
+		summarizeBy: none
+		sourceColumn: Bairro do Remetente
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Setor de Coleta'
+		dataType: string
+		lineageTag: 61a0678c-e290-4738-9494-572af237187a
+		summarizeBy: none
+		sourceColumn: Setor de Coleta
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cidade do Remetente'
+		dataType: string
+		lineageTag: 24f4b78f-811c-4739-8c6b-6fd7a83aa9b2
+		summarizeBy: none
+		sourceColumn: Cidade do Remetente
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'UF do Remetente'
+		dataType: string
+		lineageTag: e78c7878-aa18-4464-9cc5-7ce87f1a6527
+		summarizeBy: none
+		sourceColumn: UF do Remetente
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CEP do Remetente'
+		dataType: string
+		lineageTag: 6eef186c-8d25-46fe-b9d9-81b4b6ff25d3
+		summarizeBy: none
+		sourceColumn: CEP do Remetente
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CNPJ Expedidor'
+		dataType: int64
+		formatString: 0
+		lineageTag: d341424a-1070-47de-b603-8bc54a149937
+		summarizeBy: sum
+		sourceColumn: CNPJ Expedidor
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cliente Expedidor'
+		dataType: string
+		lineageTag: c2ec5387-7923-42d7-9541-4e38a244f245
+		summarizeBy: none
+		sourceColumn: Cliente Expedidor
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cidade do Expedidor'
+		dataType: string
+		lineageTag: 87c8e2a4-78f1-4373-bb9f-1e706730312e
+		summarizeBy: none
+		sourceColumn: Cidade do Expedidor
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'UF do Expedidor'
+		dataType: string
+		lineageTag: 9312d913-b5e4-481e-ae7c-73b9a0135e70
+		summarizeBy: none
+		sourceColumn: UF do Expedidor
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CNPJ Pagador'
+		dataType: int64
+		formatString: 0
+		lineageTag: 05c2a772-5eaa-451b-8e05-ac43980a1cbf
+		summarizeBy: sum
+		sourceColumn: CNPJ Pagador
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cliente Pagador'
+		dataType: string
+		lineageTag: 3424a7af-d949-41a1-986d-bcb4638d2397
+		summarizeBy: none
+		sourceColumn: Cliente Pagador
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Endereco do Pagador'
+		dataType: string
+		lineageTag: bff7673d-b046-4dad-b478-e41e34c443fb
+		summarizeBy: none
+		sourceColumn: Endereco do Pagador
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bairro do Pagador'
+		dataType: string
+		lineageTag: f23a61d1-7975-4781-bff2-d9c764e723f7
+		summarizeBy: none
+		sourceColumn: Bairro do Pagador
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cidade do Pagador'
+		dataType: string
+		lineageTag: 29d8eb4e-cad4-44db-85d4-5ba14f411dc5
+		summarizeBy: none
+		sourceColumn: Cidade do Pagador
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'UF do Pagador'
+		dataType: string
+		lineageTag: 62f919ac-1bec-462e-a763-39a91b52919d
+		summarizeBy: none
+		sourceColumn: UF do Pagador
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fone do Pagador'
+		dataType: string
+		lineageTag: b426b840-d9b2-48f8-9d27-31eae9b06737
+		summarizeBy: none
+		sourceColumn: Fone do Pagador
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Segmento do Pagador'
+		dataType: string
+		lineageTag: 3f727a61-207d-40d4-b46b-58487c4a1f87
+		summarizeBy: none
+		sourceColumn: Segmento do Pagador
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CNPJ Destinatario'
+		dataType: int64
+		formatString: 0
+		lineageTag: acd4cf54-8962-43b7-b15a-3dcc53f464f1
+		summarizeBy: sum
+		sourceColumn: CNPJ Destinatario
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cliente Destinatario'
+		dataType: string
+		lineageTag: 60b4f2f0-cdc8-4baa-976d-6d5b69df3ab7
+		summarizeBy: none
+		sourceColumn: Cliente Destinatario
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Endereco do Destinatario'
+		dataType: string
+		lineageTag: 571345ae-aa44-498a-b29e-8985397ac3c7
+		summarizeBy: none
+		sourceColumn: Endereco do Destinatario
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bairro do Destinatario'
+		dataType: string
+		lineageTag: 1f8e4323-9f1c-4dfc-81a4-6a029a33a35e
+		summarizeBy: none
+		sourceColumn: Bairro do Destinatario
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Setor de Destino'
+		dataType: int64
+		formatString: 0
+		lineageTag: d13cb7a2-9391-4dc1-a583-660007b8b6d4
+		summarizeBy: sum
+		sourceColumn: Setor de Destino
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Praca de Destino'
+		dataType: string
+		lineageTag: 40fc096d-6fc9-470a-b379-f0771a2c4c0e
+		summarizeBy: none
+		sourceColumn: Praca de Destino
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cidade do Destinatario'
+		dataType: string
+		lineageTag: a32adeb4-e836-4af5-86bf-7fa6f26b44c1
+		summarizeBy: none
+		sourceColumn: Cidade do Destinatario
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'UF do Destinatario'
+		dataType: string
+		lineageTag: d0f64b3c-90d3-4341-b13d-0b41625025bf
+		summarizeBy: none
+		sourceColumn: UF do Destinatario
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CEP do Destinatario'
+		dataType: string
+		lineageTag: 62de1557-c726-4581-9963-e2ed28b2182e
+		summarizeBy: none
+		sourceColumn: CEP do Destinatario
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fone do Destinatario'
+		dataType: string
+		lineageTag: 38b9e4a8-c938-4ec6-a6c8-893bf0adada1
+		summarizeBy: none
+		sourceColumn: Fone do Destinatario
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CNPJ Recebedor'
+		dataType: int64
+		formatString: 0
+		lineageTag: 932a14c0-e315-4b37-ba68-8483eea9d2f0
+		summarizeBy: sum
+		sourceColumn: CNPJ Recebedor
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cliente Recebedor'
+		dataType: string
+		lineageTag: a199b77c-9ae4-421a-a510-f97d5d8e8704
+		summarizeBy: none
+		sourceColumn: Cliente Recebedor
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Local de Entrega'
+		dataType: string
+		lineageTag: 46fa551b-ee39-4c5b-82bc-867a94f849d4
+		summarizeBy: none
+		sourceColumn: Local de Entrega
+
+		annotation SummarizationSetBy = Automatic
+
+	column Endereco
+		dataType: string
+		lineageTag: 5c1e10cc-16bb-4dd8-b201-46f210a31943
+		summarizeBy: none
+		sourceColumn: Endereco
+
+		annotation SummarizationSetBy = Automatic
+
+	column Bairro
+		dataType: string
+		lineageTag: 8300973b-d81d-485a-9130-2443b55520f9
+		summarizeBy: none
+		sourceColumn: Bairro
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cidade de Entrega'
+		dataType: string
+		lineageTag: 70372fb4-8443-4c70-b89e-c736514fc2a3
+		summarizeBy: none
+		sourceColumn: Cidade de Entrega
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'UF de Entrega'
+		dataType: string
+		lineageTag: 4839983e-1304-438a-9f79-fe13ba5bc454
+		summarizeBy: none
+		sourceColumn: UF de Entrega
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CEP de Entrega'
+		dataType: string
+		lineageTag: cf4b059d-aa47-46d9-9e9c-0f0b721a6010
+		summarizeBy: none
+		sourceColumn: CEP de Entrega
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unidade Receptora'
+		dataType: string
+		lineageTag: 1de3edb3-95e8-419b-bd0e-4744c048a925
+		summarizeBy: none
+		sourceColumn: Unidade Receptora
+
+		annotation SummarizationSetBy = Automatic
+
+	column CFOP
+		dataType: int64
+		formatString: 0
+		lineageTag: 7b6fcafa-48d8-4821-9b06-3ac4783c2a52
+		summarizeBy: sum
+		sourceColumn: CFOP
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Numero da Nota Fiscal'
+		dataType: int64
+		formatString: 0
+		lineageTag: 7bdcbf8e-7efe-46da-83aa-56f952815e96
+		summarizeBy: sum
+		sourceColumn: Numero da Nota Fiscal
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Peso Real em Kg'
+		dataType: double
+		lineageTag: 868c763d-0ee6-430c-93d8-c32bb84d5b26
+		summarizeBy: sum
+		sourceColumn: Peso Real em Kg
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Cubagem em m3'
+		dataType: int64
+		lineageTag: aa6133d3-1b35-4620-bc38-33860ea0edd3
+		summarizeBy: sum
+		sourceColumn: Cubagem em m3
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Quantidade de Volumes'
+		dataType: int64
+		formatString: 0
+		lineageTag: c6351066-2c64-489f-ae83-2e26836ffe3a
+		summarizeBy: sum
+		sourceColumn: Quantidade de Volumes
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Quantidade de Pares'
+		dataType: int64
+		formatString: 0
+		lineageTag: 7a54cd12-7e41-40c4-9515-af24dfbfb12c
+		summarizeBy: sum
+		sourceColumn: Quantidade de Pares
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tipo do Frete'
+		dataType: string
+		lineageTag: eb2db16a-17e7-44d5-b6da-1c761c4282a3
+		summarizeBy: none
+		sourceColumn: Tipo do Frete
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tipo de Baixa'
+		dataType: string
+		lineageTag: 2abfb4f9-3b05-4a76-8fce-af019b954ffc
+		summarizeBy: none
+		sourceColumn: Tipo de Baixa
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data da Liquidacao'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 78ed3860-756b-4751-95d4-3343674c1a86
+		summarizeBy: none
+		sourceColumn: Data da Liquidacao
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Valor Liquidado'
+		dataType: double
+		lineageTag: 82460bb1-64bb-419b-839a-e016072e6be3
+		summarizeBy: sum
+		sourceColumn: Valor Liquidado
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Mercadoria
+		dataType: string
+		lineageTag: 8d59a3a6-848a-4628-a036-553024110465
+		summarizeBy: none
+		sourceColumn: Mercadoria
+
+		annotation SummarizationSetBy = Automatic
+
+	column Especie
+		dataType: string
+		lineageTag: 7f292d13-3344-44c3-aeda-0e5e84e20958
+		summarizeBy: none
+		sourceColumn: Especie
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Valor da Mercadoria'
+		dataType: double
+		lineageTag: db0f64ec-54ca-4c08-9317-2b5dbf24a0b2
+		summarizeBy: sum
+		sourceColumn: Valor da Mercadoria
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Tipo de Calculo'
+		dataType: string
+		lineageTag: f6a5560f-3924-48b9-ac5f-21dcba83d90e
+		summarizeBy: none
+		sourceColumn: Tipo de Calculo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tabela de Calculo'
+		dataType: string
+		lineageTag: aea447c4-02a1-40c2-8129-f89f48420972
+		summarizeBy: none
+		sourceColumn: Tabela de Calculo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Valor do Frete'
+		dataType: double
+		lineageTag: 393c4bac-377a-4a90-9dca-00489d452d4e
+		summarizeBy: sum
+		sourceColumn: Valor do Frete
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Valor do Frete sem ICMS'
+		dataType: double
+		lineageTag: 8e5da519-72c6-4ce1-bf1a-6ce22206b422
+		summarizeBy: sum
+		sourceColumn: Valor do Frete sem ICMS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Base de Calculo'
+		dataType: double
+		lineageTag: e90b9e45-d421-4001-b276-f2cf441b68d2
+		summarizeBy: sum
+		sourceColumn: Base de Calculo
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Valor do ICMS'
+		dataType: int64
+		lineageTag: 56b56405-2da9-4238-82f3-7bd19496fcb7
+		summarizeBy: sum
+		sourceColumn: Valor do ICMS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Aliquota
+		dataType: double
+		lineageTag: 15084724-8552-40a1-963e-565de52a5c8d
+		summarizeBy: sum
+		sourceColumn: Aliquota
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Valor do ISS'
+		dataType: int64
+		formatString: 0
+		lineageTag: 63b243bb-237c-4332-b2ba-e36b47e0e68e
+		summarizeBy: sum
+		sourceColumn: Valor do ISS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Peso Calculado em Kg'
+		dataType: double
+		lineageTag: 5c77e18e-60bc-4a72-a51b-8e2194a5d62f
+		summarizeBy: sum
+		sourceColumn: Peso Calculado em Kg
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Modalidade
+		dataType: string
+		lineageTag: 97c24f35-4234-4180-be95-0460b45fad35
+		summarizeBy: none
+		sourceColumn: Modalidade
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unidade Fiscal'
+		dataType: string
+		lineageTag: 6ac0820a-7f47-489c-95ad-a16f67754a09
+		summarizeBy: none
+		sourceColumn: Unidade Fiscal
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Inscricao Unidade Emissora'
+		dataType: int64
+		formatString: 0
+		lineageTag: 712f9859-6c11-4d16-80bf-8d60a5e77b74
+		summarizeBy: sum
+		sourceColumn: Inscricao Unidade Emissora
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Frete Peso'
+		dataType: double
+		lineageTag: 3817b59f-531e-4223-b160-fe01962be4a3
+		summarizeBy: sum
+		sourceColumn: Frete Peso
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Frete Valor'
+		dataType: double
+		lineageTag: 3ef94c87-9ded-4cc4-be5c-5cb1885e2a64
+		summarizeBy: sum
+		sourceColumn: Frete Valor
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Despacho
+		dataType: double
+		lineageTag: 6781bc58-23fe-4fb2-a94c-8d237e03a8f2
+		summarizeBy: sum
+		sourceColumn: Despacho
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CAT
+		dataType: int64
+		lineageTag: 24320b1c-bd37-46d7-ad64-17c0e42f6332
+		summarizeBy: sum
+		sourceColumn: CAT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ITR
+		dataType: int64
+		formatString: 0
+		lineageTag: 28b842e7-193c-40d9-9bef-1b8cab273b41
+		summarizeBy: sum
+		sourceColumn: ITR
+
+		annotation SummarizationSetBy = Automatic
+
+	column GRIS
+		dataType: int64
+		lineageTag: e022c651-dace-4984-a5b3-e2ab9c4c30ae
+		summarizeBy: sum
+		sourceColumn: GRIS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Pedagio
+		dataType: int64
+		lineageTag: 238348a9-b44e-49b4-bdd2-3829b95f6af7
+		summarizeBy: sum
+		sourceColumn: Pedagio
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TAS
+		dataType: int64
+		formatString: 0
+		lineageTag: 7bd6af08-8576-443f-a96d-6af0cf7c43e8
+		summarizeBy: sum
+		sourceColumn: TAS
+
+		annotation SummarizationSetBy = Automatic
+
+	column TDA
+		dataType: int64
+		formatString: 0
+		lineageTag: e75102b1-c586-4db2-b5ad-10ab91d13e1c
+		summarizeBy: sum
+		sourceColumn: TDA
+
+		annotation SummarizationSetBy = Automatic
+
+	column Suframa
+		dataType: int64
+		formatString: 0
+		lineageTag: 99c4df57-7e15-42da-a846-659a95875521
+		summarizeBy: sum
+		sourceColumn: Suframa
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dev Canhoto NF'
+		dataType: int64
+		formatString: 0
+		lineageTag: b17216d7-5a68-404a-ac08-b0fcace95c6e
+		summarizeBy: sum
+		sourceColumn: Dev Canhoto NF
+
+		annotation SummarizationSetBy = Automatic
+
+	column Reembolso
+		dataType: int64
+		formatString: 0
+		lineageTag: 8dd163dd-ecf8-479f-8ee1-4b7d398299f3
+		summarizeBy: sum
+		sourceColumn: Reembolso
+
+		annotation SummarizationSetBy = Automatic
+
+	column Outros
+		dataType: int64
+		lineageTag: 4f3dd8f8-38f7-4f55-aca4-3bc62d69f406
+		summarizeBy: sum
+		sourceColumn: Outros
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Coleta
+		dataType: int64
+		formatString: 0
+		lineageTag: 448254b5-d602-43da-971f-b7ad9e4ae2b8
+		summarizeBy: sum
+		sourceColumn: Coleta
+
+		annotation SummarizationSetBy = Automatic
+
+	column TDC
+		dataType: int64
+		formatString: 0
+		lineageTag: 0b535c04-3c3b-46da-93db-57f6c55f68ab
+		summarizeBy: sum
+		sourceColumn: TDC
+
+		annotation SummarizationSetBy = Automatic
+
+	column TDE
+		dataType: int64
+		formatString: 0
+		lineageTag: b10d49ab-0cf1-4afe-be30-3121e42e16a6
+		summarizeBy: sum
+		sourceColumn: TDE
+
+		annotation SummarizationSetBy = Automatic
+
+	column TAR
+		dataType: int64
+		formatString: 0
+		lineageTag: b413cbc5-35fa-411d-a0ba-412d507f8001
+		summarizeBy: sum
+		sourceColumn: TAR
+
+		annotation SummarizationSetBy = Automatic
+
+	column TRT
+		dataType: int64
+		formatString: 0
+		lineageTag: c9ea08dd-5111-4382-b232-bfcaa69bf455
+		summarizeBy: sum
+		sourceColumn: TRT
+
+		annotation SummarizationSetBy = Automatic
+
+	column POS
+		dataType: int64
+		formatString: 0
+		lineageTag: 3c021255-2a4e-4a46-8e28-9028f73f75c5
+		summarizeBy: sum
+		sourceColumn: POS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Adicional de Frete'
+		dataType: int64
+		formatString: 0
+		lineageTag: 6cb40bef-8fb2-48a7-af80-49850af688be
+		summarizeBy: sum
+		sourceColumn: Adicional de Frete
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Celular do Destinatario'
+		dataType: string
+		lineageTag: 847f1c8d-03f5-4830-8f4b-3687141cbcfa
+		summarizeBy: none
+		sourceColumn: Celular do Destinatario
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ABC Pagador'
+		dataType: string
+		lineageTag: 64c24dbd-ce71-4c31-b2e3-36f7b3f58f45
+		summarizeBy: none
+		sourceColumn: ABC Pagador
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'UF origem da prestacao'
+		dataType: string
+		lineageTag: 16f9edf3-2626-46f0-9bd1-3ec131d1f7c3
+		summarizeBy: none
+		sourceColumn: UF origem da prestacao
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cidade origem da prestacao'
+		dataType: string
+		lineageTag: a5f147be-fbe6-45e1-964a-9e0f9bce0b94
+		summarizeBy: none
+		sourceColumn: Cidade origem da prestacao
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IE cliente remetente'
+		dataType: int64
+		formatString: 0
+		lineageTag: cc713c0e-862e-4794-94eb-ab7c68814760
+		summarizeBy: sum
+		sourceColumn: IE cliente remetente
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lote RPS'
+		dataType: string
+		lineageTag: b65afdd5-9e1f-4686-9c2b-e6c39cb01330
+		summarizeBy: none
+		sourceColumn: Lote RPS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fone Remetente'
+		dataType: string
+		lineageTag: c285ebe1-58ca-49cc-8284-88d8ea3cfd06
+		summarizeBy: none
+		sourceColumn: Fone Remetente
+
+		annotation SummarizationSetBy = Automatic
+
+	column Agendamento
+		dataType: int64
+		formatString: 0
+		lineageTag: 8d7955fd-3426-463a-86b5-817581a87b20
+		summarizeBy: sum
+		sourceColumn: Agendamento
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unidade Responsavel Pagador'
+		dataType: string
+		lineageTag: 3bc089b0-1927-4dfd-82e7-7ab5c40b632d
+		summarizeBy: none
+		sourceColumn: Unidade Responsavel Pagador
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Imposto Repassado'
+		dataType: int64
+		lineageTag: d36d4541-fae1-428e-b2e3-bc4ac8275231
+		summarizeBy: sum
+		sourceColumn: Imposto Repassado
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Praca Comercial Origem'
+		dataType: string
+		lineageTag: 6773c734-8b97-48a3-b270-94c0d463978e
+		summarizeBy: none
+		sourceColumn: Praca Comercial Origem
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Praca Comercial Destino'
+		dataType: string
+		lineageTag: b5482123-ebf8-4722-920e-17677bfd0f83
+		summarizeBy: none
+		sourceColumn: Praca Comercial Destino
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Frete NTC'
+		dataType: double
+		lineageTag: e11e2958-3f21-4b28-8507-932bcb91f7fb
+		summarizeBy: sum
+		sourceColumn: Frete NTC
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Frete Entrega'
+		dataType: int64
+		formatString: 0
+		lineageTag: 904c81d5-934a-4d28-a8de-cc66735bbc5b
+		summarizeBy: sum
+		sourceColumn: Frete Entrega
+
+		annotation SummarizationSetBy = Automatic
+
+	column Separacao
+		dataType: int64
+		formatString: 0
+		lineageTag: e069d85a-4951-471c-a27f-44aadb82eda1
+		summarizeBy: sum
+		sourceColumn: Separacao
+
+		annotation SummarizationSetBy = Automatic
+
+	column Capatazia
+		dataType: int64
+		formatString: 0
+		lineageTag: 02e1570e-62a8-4d68-bcc7-e2c3652e10b5
+		summarizeBy: sum
+		sourceColumn: Capatazia
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Veiculo Dedicado'
+		dataType: int64
+		formatString: 0
+		lineageTag: ffc9f962-a44e-4aa6-b6bf-f0fcc37dd266
+		summarizeBy: sum
+		sourceColumn: Veiculo Dedicado
+
+		annotation SummarizationSetBy = Automatic
+
+	column Paletizacao
+		dataType: int64
+		formatString: 0
+		lineageTag: c6a336d1-8c4d-4a91-92d4-88d5ac615a2f
+		summarizeBy: sum
+		sourceColumn: Paletizacao
+
+		annotation SummarizationSetBy = Automatic
+
+	column CO2
+		dataType: int64
+		formatString: 0
+		lineageTag: 5415096f-2447-4691-98e3-3e59e365c7f8
+		summarizeBy: sum
+		sourceColumn: CO2
+
+		annotation SummarizationSetBy = Automatic
+
+	column RDC
+		dataType: int64
+		formatString: 0
+		lineageTag: c639cd1a-26ca-4648-9c1f-cc28610625b2
+		summarizeBy: sum
+		sourceColumn: RDC
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Primeiro Manifesto'
+		dataType: string
+		lineageTag: 461b0455-efa8-4907-a708-33d10fcc8280
+		summarizeBy: none
+		sourceColumn: Primeiro Manifesto
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data do Primeiro Manifesto'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: e33547d0-c19d-4434-b461-e722abba6609
+		summarizeBy: none
+		sourceColumn: Data do Primeiro Manifesto
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Unidade Origem do Primeiro Manifesto'
+		dataType: string
+		lineageTag: 4ed331cc-d939-4391-b0d9-8086a4e53760
+		summarizeBy: none
+		sourceColumn: Unidade Origem do Primeiro Manifesto
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Placa do Cavalo'
+		dataType: string
+		lineageTag: 17892c7b-9fbf-402a-9b4f-34daf40970f6
+		summarizeBy: none
+		sourceColumn: Placa do Cavalo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Placa da Carreta'
+		dataType: string
+		lineageTag: b84f2805-123d-4e21-9d48-945628d962d3
+		summarizeBy: none
+		sourceColumn: Placa da Carreta
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Conferente de Carga'
+		dataType: string
+		lineageTag: ae5f8186-be4e-433c-b786-7af53ceb740c
+		summarizeBy: none
+		sourceColumn: Conferente de Carga
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Conferente de Descarga'
+		dataType: string
+		lineageTag: dcbc9031-5964-4542-9b54-ca923fe6166c
+		summarizeBy: none
+		sourceColumn: Conferente de Descarga
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ultimo Manifesto'
+		dataType: string
+		lineageTag: bc960b8e-c2ad-4682-b557-1c9d51867fa0
+		summarizeBy: none
+		sourceColumn: Ultimo Manifesto
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data do Ultimo Manifesto'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 89404a8f-991e-4f41-b3d7-af79ffbf7ab9
+		summarizeBy: none
+		sourceColumn: Data do Ultimo Manifesto
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Unidade Destino do Ultimo Manifesto'
+		dataType: string
+		lineageTag: 00ab1b22-465f-45bb-bd5d-5637216d9709
+		summarizeBy: none
+		sourceColumn: Unidade Destino do Ultimo Manifesto
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ultimo Romaneio'
+		dataType: string
+		lineageTag: 8c939479-1871-4054-b831-d8e9ed461086
+		summarizeBy: none
+		sourceColumn: Ultimo Romaneio
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data do Ultimo Romaneio'
+		dataType: string
+		lineageTag: aaf1d078-5ede-4712-8bdf-37fd298bb80c
+		summarizeBy: none
+		sourceColumn: Data do Ultimo Romaneio
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Placa de Entrega'
+		dataType: string
+		lineageTag: df4f9b29-a61c-45a1-b1ec-889763badba5
+		summarizeBy: none
+		sourceColumn: Placa de Entrega
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Codigo da Ultima Ocorrencia'
+		dataType: string
+		lineageTag: 4038d95e-6c39-4b44-b518-262d4733b629
+		summarizeBy: none
+		sourceColumn: Codigo da Ultima Ocorrencia
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data de inclusao da Ultima Ocorrencia'
+		dataType: string
+		lineageTag: de0e24aa-19dc-443d-be78-35d1bc6647a2
+		summarizeBy: none
+		sourceColumn: Data de inclusao da Ultima Ocorrencia
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data da Ultima Ocorrencia'
+		dataType: string
+		lineageTag: 99e45d2c-43bf-433b-9693-9da623181a1f
+		summarizeBy: none
+		sourceColumn: Data da Ultima Ocorrencia
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Usuario da Ultima Ocorrencia'
+		dataType: string
+		lineageTag: 3795c5a6-548b-48df-a272-476c972135fa
+		summarizeBy: none
+		sourceColumn: Usuario da Ultima Ocorrencia
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CNPJ Pagador2'
+		dataType: string
+		lineageTag: d3e3225c-1b8a-4f45-9d8d-fb7deb30dd9d
+		summarizeBy: none
+		sourceColumn: CNPJ Pagador2
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dCTRCS = m
+		mode: import
+		queryGroup: 'TABELAS PADRÃO\Transformar Arquivo de Opentech - Acomp - Veiculos - FINI\Consultas Auxiliares'
+		source =
+				let
+				    Fonte = Folder.Files("C:\Users\flavi\OneDrive\002\03-CTRC"),
+				    #"Arquivos Ocultos Filtrados1" = Table.SelectRows(Fonte, each [Attributes]?[Hidden]? <> true),
+				    #"Invocar Função Personalizada1" = Table.AddColumn(#"Arquivos Ocultos Filtrados1", "Transformar Arquivo", each #"Transformar Arquivo"([Content])),
+				    #"Colunas Renomeadas1" = Table.RenameColumns(#"Invocar Função Personalizada1", {"Name", "Nome da Origem"}),
+				    #"Outras Colunas Removidas1" = Table.SelectColumns(#"Colunas Renomeadas1", {"Nome da Origem", "Transformar Arquivo"}),
+				    #"Coluna de Tabela Expandida1" = Table.ExpandTableColumn(#"Outras Colunas Removidas1", "Transformar Arquivo", Table.ColumnNames(#"Transformar Arquivo"(#"Arquivo de Amostra"))),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Coluna de Tabela Expandida1",{{"Nome da Origem", type text}, {"Column1", Int64.Type}, {"Column2", type text}, {"Column3", type text}, {"Column4", type text}, {"Column5", type text}, {"Column6", type text}, {"Column7", type text}, {"Column8", type text}, {"Column9", type text}, {"Column10", type text}, {"Column11", type text}, {"Column12", type text}, {"Column13", type text}, {"Column14", type text}, {"Column15", type text}, {"Column16", type text}, {"Column17", type text}, {"Column18", type text}, {"Column19", type text}, {"Column20", type text}, {"Column21", type text}, {"Column22", type text}, {"Column23", type text}, {"Column24", type text}, {"Column25", type text}, {"Column26", type text}, {"Column27", type text}, {"Column28", type text}, {"Column29", type text}, {"Column30", type text}, {"Column31", type text}, {"Column32", type text}, {"Column33", type text}, {"Column34", type text}, {"Column35", type text}, {"Column36", type text}, {"Column37", type text}, {"Column38", type text}, {"Column39", type text}, {"Column40", type text}, {"Column41", type text}, {"Column42", type text}, {"Column43", type text}, {"Column44", type text}, {"Column45", type text}, {"Column46", type text}, {"Column47", type text}, {"Column48", type text}, {"Column49", type text}, {"Column50", type text}, {"Column51", type text}, {"Column52", type text}, {"Column53", type text}, {"Column54", type text}, {"Column55", type text}, {"Column56", type text}, {"Column57", type text}, {"Column58", type text}, {"Column59", type text}, {"Column60", type text}, {"Column61", type text}, {"Column62", type text}, {"Column63", type text}, {"Column64", type text}, {"Column65", type text}, {"Column66", type text}, {"Column67", type text}, {"Column68", type text}, {"Column69", type text}, {"Column70", type text}, {"Column71", type text}, {"Column72", type text}, {"Column73", type text}, {"Column74", type text}, {"Column75", type text}, {"Column76", type text}, {"Column77", type text}, {"Column78", type text}, {"Column79", type text}, {"Column80", type text}, {"Column81", type text}, {"Column82", type text}, {"Column83", type text}, {"Column84", type text}, {"Column85", type text}, {"Column86", type text}, {"Column87", type text}, {"Column88", type text}, {"Column89", type text}, {"Column90", type text}, {"Column91", type text}, {"Column92", type text}, {"Column93", type text}, {"Column94", type text}, {"Column95", type text}, {"Column96", type text}, {"Column97", type text}, {"Column98", type text}, {"Column99", type text}, {"Column100", type text}, {"Column101", type text}, {"Column102", type text}, {"Column103", type text}, {"Column104", type text}, {"Column105", type text}, {"Column106", type text}, {"Column107", type text}, {"Column108", type text}, {"Column109", type text}, {"Column110", type text}, {"Column111", type text}, {"Column112", type text}, {"Column113", type text}, {"Column114", type text}, {"Column115", type text}, {"Column116", type text}, {"Column117", type text}, {"Column118", type text}, {"Column119", type text}, {"Column120", type text}, {"Column121", type text}, {"Column122", type text}, {"Column123", type text}, {"Column124", type text}, {"Column125", type text}, {"Column126", type text}, {"Column127", type text}, {"Column128", type text}, {"Column129", type text}, {"Column130", type text}, {"Column131", type text}, {"Column132", type text}, {"Column133", type text}, {"Column134", type text}, {"Column135", type text}}),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Tipo Alterado",{"Nome da Origem", "Column1"}),
+				    #"Duplicatas Removidas" = Table.Distinct(#"Colunas Removidas", {"Column2"}),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Duplicatas Removidas", [PromoteAllScalars=true]),
+				    #"Cabeçalhos Promovidos2" = Table.PromoteHeaders(#"Cabeçalhos Promovidos", [PromoteAllScalars=true]),
+				    #"Coluna Duplicada" = Table.DuplicateColumn(#"Cabeçalhos Promovidos2", "CNPJ Pagador", "CNPJ Pagador - Copiar"),
+				    #"Valor Substituído" = Table.ReplaceValue(#"Coluna Duplicada"," ","",Replacer.ReplaceText,{"Primeiro Manifesto"}),
+				    #"Valor Substituído1" = Table.ReplaceValue(#"Valor Substituído"," ","",Replacer.ReplaceText,{"Ultimo Manifesto"}),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Valor Substituído1",{{"Serie/Numero CTRC", type text}, {"Serie/Numero CT-e", Int64.Type}, {"Tipo do Documento", type text}, {"Praca Expedidora", type text}, {"Unidade Emissora", type text}, {"Data de Emissao", type date}, {"Hora de Emissao", type time}, {"Data de Autorizacao", type date}, {"Hora de Autorizacao", type time}, {"Login", type text}, {"Numero de Controle", Int64.Type}, {"Placa de Coleta", type text}, {"Chave CT-e", type number}, {"CNPJ Remetente", Int64.Type}, {"Cliente Remetente", type text}, {"Endereco do Remetente", type text}, {"Bairro do Remetente", type text}, {"Setor de Coleta", type text}, {"Cidade do Remetente", type text}, {"UF do Remetente", type text}, {"CEP do Remetente", type text}, {"CNPJ Expedidor", Int64.Type}, {"Cliente Expedidor", type text}, {"Cidade do Expedidor", type text}, {"UF do Expedidor", type text}, {"CNPJ Pagador", Int64.Type}, {"Cliente Pagador", type text}, {"Endereco do Pagador", type text}, {"Bairro do Pagador", type text}, {"Cidade do Pagador", type text}, {"UF do Pagador", type text}, {"Fone do Pagador", type text}, {"Segmento do Pagador", type text}, {"CNPJ Destinatario", Int64.Type}, {"Cliente Destinatario", type text}, {"Endereco do Destinatario", type text}, {"Bairro do Destinatario", type text}, {"Setor de Destino", Int64.Type}, {"Praca de Destino", type text}, {"Cidade do Destinatario", type text}, {"UF do Destinatario", type text}, {"CEP do Destinatario", type text}, {"Fone do Destinatario", type text}, {"CNPJ Recebedor", Int64.Type}, {"Cliente Recebedor", type text}, {"Local de Entrega", type text}, {"Endereco", type text}, {"Bairro", type text}, {"Cidade de Entrega", type text}, {"UF de Entrega", type text}, {"CEP de Entrega", type text}, {"Unidade Receptora", type text}, {"CFOP", Int64.Type}, {"Numero da Nota Fiscal", Int64.Type}, {"Peso Real em Kg", type number}, {"Cubagem em m3", Int64.Type}, {"Quantidade de Volumes", Int64.Type}, {"Quantidade de Pares", Int64.Type}, {"Tipo do Frete", type text}, {"Tipo de Baixa", type text}, {"Data da Liquidacao", type date}, {"Valor Liquidado", type number}, {"Mercadoria", type text}, {"Especie", type text}, {"Valor da Mercadoria", type number}, {"Tipo de Calculo", type text}, {"Tabela de Calculo", type text}, {"Valor do Frete", type number}, {"Valor do Frete sem ICMS", type number}, {"Base de Calculo", type number}, {"Valor do ICMS", Int64.Type}, {"Aliquota", type number}, {"Valor do ISS", Int64.Type}, {"Peso Calculado em Kg", type number}, {"Modalidade", type text}, {"Unidade Fiscal", type text}, {"Inscricao Unidade Emissora", Int64.Type}, {"Frete Peso", type number}, {"Frete Valor", type number}, {"Despacho", type number}, {"CAT", Int64.Type}, {"ITR", Int64.Type}, {"GRIS", Int64.Type}, {"Pedagio", Int64.Type}, {"TAS", Int64.Type}, {"TDA", Int64.Type}, {"Suframa", Int64.Type}, {"Dev Canhoto NF", Int64.Type}, {"Reembolso", Int64.Type}, {"Outros", Int64.Type}, {"Coleta", Int64.Type}, {"TDC", Int64.Type}, {"TDE", Int64.Type}, {"TAR", Int64.Type}, {"TRT", Int64.Type}, {"POS", Int64.Type}, {"Adicional de Frete", Int64.Type}, {"Celular do Destinatario", type text}, {"ABC Pagador", type text}, {"UF origem da prestacao", type text}, {"Cidade origem da prestacao", type text}, {"IE cliente remetente", Int64.Type}, {"Lote RPS", type text}, {"Fone Remetente", type text}, {"Agendamento", Int64.Type}, {"Unidade Responsavel Pagador", type text}, {"Imposto Repassado", Int64.Type}, {"Praca Comercial Origem", type text}, {"Praca Comercial Destino", type text}, {"Frete NTC", type number}, {"Frete Entrega", Int64.Type}, {"Separacao", Int64.Type}, {"Capatazia", Int64.Type}, {"Veiculo Dedicado", Int64.Type}, {"Paletizacao", Int64.Type}, {"CO2", Int64.Type}, {"RDC", Int64.Type}, {"Primeiro Manifesto", type text}, {"Data do Primeiro Manifesto", type date}, {"Unidade Origem do Primeiro Manifesto", type text}, {"Placa do Cavalo", type text}, {"Placa da Carreta", type text}, {"Conferente de Carga", type text}, {"Conferente de Descarga", type text}, {"Ultimo Manifesto", type text}, {"Data do Ultimo Manifesto", type date}, {"Unidade Destino do Ultimo Manifesto", type text}, {"Ultimo Romaneio", type text}, {"Data do Ultimo Romaneio", type text}, {"Placa de Entrega", type text}}),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Tipo Alterado1",{{"CNPJ Pagador - Copiar", "CNPJ Pagador2"}})
+				in
+				    #"Colunas Renomeadas"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

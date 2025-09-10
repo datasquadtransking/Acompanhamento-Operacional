@@ -1,0 +1,443 @@
+expression 'Arquivo de Amostra (2)' =
+		let
+		    Fonte = Folder.Files("C:\Users\flavi\OneDrive\001\Cotação"),
+		    #"Outras Colunas Removidas" = Table.SelectColumns(Fonte,{"Content"}),
+		    Navegação1 = #"Outras Colunas Removidas"{0}[Content]
+		in
+		    Navegação1
+	lineageTag: 65a46d8c-4bd4-4f00-a2d7-2c854a714f0e
+
+	annotation PBI_ResultType = Binary
+
+	annotation PBI_NavigationStepName = Navegação
+
+expression 'Transformar Arquivo (2)' =
+		let
+		    Fonte = (Parâmetro2 as binary) => let
+		    Fonte = Csv.Document(Parâmetro2,[Delimiter=";", Columns=38, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+		    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true])
+		in
+		    #"Cabeçalhos Promovidos"
+		in
+		    Fonte
+	lineageTag: d3b250b5-b8f6-4e41-861b-2d934432b44b
+
+	annotation PBI_ResultType = Function
+
+expression 'Transformar Arquivo (12)' =
+		let
+		    Fonte = (Parâmetro12 as binary) => let
+		    Fonte = Excel.Workbook(Parâmetro12, null, true),
+		    ssw0116atki1 = Fonte{[Name="ssw0116atki092335"]}[Data],
+		    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(ssw0116atki1, [PromoteAllScalars=true])
+		in
+		    #"Cabeçalhos Promovidos"
+		in
+		    Fonte
+	lineageTag: 96f50cbd-a224-49b9-89df-095b65548695
+
+	annotation PBI_ResultType = Function
+
+expression 'Arquivo de Amostra (13)' =
+		let
+		    Fonte = Folder.Files("C:\Users\flavi\OneDrive\002\04-MANIFESTOS"),
+		    Navegação1 = Fonte{0}[Content]
+		in
+		    Navegação1
+	lineageTag: cb4ffbb0-dc3f-4fdf-ae54-a03598942bfa
+
+	annotation PBI_ResultType = Exception
+
+	annotation PBI_NavigationStepName = Navegação
+
+expression 'Transformar Arquivo (13)' =
+		let
+		    Fonte = (Parâmetro13 as binary) => let
+		    Fonte = Csv.Document(Parâmetro13,[Delimiter=";", Columns=65, Encoding=65001, QuoteStyle=QuoteStyle.None])
+		in
+		    Fonte
+		in
+		    Fonte
+	lineageTag: 55afcdf5-a270-4e43-9887-1016876e5b5e
+
+	annotation PBI_ResultType = Function
+
+expression 'Arquivo de Amostra' =
+		let
+		    Fonte = Folder.Files("C:\Users\flavi\OneDrive\002\03-CTRC"),
+		    Navegação1 = Fonte{0}[Content]
+		in
+		    Navegação1
+	lineageTag: de8ee275-8a55-4a19-bcd5-0ef86579a6bb
+
+	annotation PBI_ResultType = Exception
+
+	annotation PBI_NavigationStepName = Navegação
+
+expression 'Transformar Arquivo' =
+		let
+		    Fonte = (Parâmetro1 as binary) => let
+		    Fonte = Csv.Document(Parâmetro1,[Delimiter=";", Columns=135, Encoding=1252, QuoteStyle=QuoteStyle.None])
+		in
+		    Fonte
+		in
+		    Fonte
+	lineageTag: 22f4d174-7d68-4c35-98e8-b1a885139e53
+
+	annotation PBI_ResultType = Function
+
+expression Parâmetro1 = #"Arquivo de Amostra (3)" meta [IsParameterQuery=true, BinaryIdentifier=#"Arquivo de Amostra (3)", Type="Binary", IsParameterQueryRequired=true]
+	lineageTag: c30bb1c4-ba16-41c6-8ae5-f054ac3864ec
+	queryGroup: 'TABELAS PADRÃO\Transformar Arquivo de TesteOpentech\Consultas Auxiliares'
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Binary
+
+expression 'Transformar o Arquivo de Exemplo' =
+		let
+		    Fonte = Excel.Workbook(Parâmetro1, null, true),
+		    #"PAINEL MONITORAÇÃO_Sheet" = Fonte{[Item="PAINEL MONITORAÇÃO",Kind="Sheet"]}[Data],
+		    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"PAINEL MONITORAÇÃO_Sheet", [PromoteAllScalars=true])
+		in
+		    #"Cabeçalhos Promovidos"
+	lineageTag: a06fd101-ee8c-4355-b62d-18ac791a5760
+	queryGroup: 'TABELAS PADRÃO\Transformar Arquivo de TesteOpentech'
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+
+expression 'Arquivo de Amostra (3)' =
+		let
+		    Fonte = Folder.Files("C:\Users\flavi\OneDrive\001\TesteOpentech"),
+		    Navegação1 = Fonte{0}[Content]
+		in
+		    Navegação1
+	lineageTag: a53c6637-c8a0-47c6-8ff0-bba93688732b
+	queryGroup: 'TABELAS PADRÃO\Transformar Arquivo de TesteOpentech\Consultas Auxiliares'
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Binary
+
+expression 'Transformar Arquivo (3)' =
+		let
+		    Fonte = (Parâmetro1 as binary) => let
+		    Fonte = Excel.Workbook(Parâmetro1, null, true),
+		    #"PAINEL MONITORAÇÃO_Sheet" = Fonte{[Item="PAINEL MONITORAÇÃO",Kind="Sheet"]}[Data],
+		    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"PAINEL MONITORAÇÃO_Sheet", [PromoteAllScalars=true])
+		in
+		    #"Cabeçalhos Promovidos"
+		in
+		    Fonte
+	lineageTag: 496cf39a-d880-436c-bd17-d35a72f4492f
+	queryGroup: 'TABELAS PADRÃO\Transformar Arquivo de TesteOpentech\Consultas Auxiliares'
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Function
+
+expression Parâmetro2 = #"Arquivo de Amostra (4)" meta [IsParameterQuery=true, BinaryIdentifier=#"Arquivo de Amostra (4)", Type="Binary", IsParameterQueryRequired=true]
+	lineageTag: 9d1fb186-4429-4393-a091-d8dbae9a976c
+	queryGroup: 'TABELAS PADRÃO\Transformar Arquivo de TesteOpentech (2)\Consultas Auxiliares'
+
+	annotation PBI_ResultType = Binary
+
+	annotation PBI_NavigationStepName = Navegação
+
+expression 'Transformar o Arquivo de Exemplo (2)' =
+		let
+		    Fonte = Excel.Workbook(Parâmetro2, null, true),
+		    #"PAINEL MONITORAÇÃO_Sheet" = Fonte{[Item="PAINEL MONITORAÇÃO",Kind="Sheet"]}[Data],
+		    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"PAINEL MONITORAÇÃO_Sheet", [PromoteAllScalars=true])
+		in
+		    #"Cabeçalhos Promovidos"
+	lineageTag: 18681f32-6205-412d-bb74-077fb9cd4f25
+	queryGroup: 'TABELAS PADRÃO\Transformar Arquivo de TesteOpentech (2)'
+
+	annotation PBI_ResultType = Table
+
+expression 'Arquivo de Amostra (4)' =
+		let
+		    Fonte = Folder.Files("C:\Users\flavi\OneDrive\001\TesteOpentech"),
+		    Navegação1 = Fonte{0}[Content]
+		in
+		    Navegação1
+	lineageTag: 275a2ccd-3224-4f0a-b88b-9a771b316072
+	queryGroup: 'TABELAS PADRÃO\Transformar Arquivo de TesteOpentech (2)\Consultas Auxiliares'
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Binary
+
+expression 'Transformar Arquivo (4)' =
+		let
+		    Fonte = (Parâmetro2 as binary) => let
+		    Fonte = Excel.Workbook(Parâmetro2, null, true),
+		    #"PAINEL MONITORAÇÃO_Sheet" = Fonte{[Item="PAINEL MONITORAÇÃO",Kind="Sheet"]}[Data],
+		    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"PAINEL MONITORAÇÃO_Sheet", [PromoteAllScalars=true])
+		in
+		    #"Cabeçalhos Promovidos"
+		in
+		    Fonte
+	lineageTag: 5db6e1ba-8160-4714-8e3c-40d81ebc9a2a
+	queryGroup: 'TABELAS PADRÃO\Transformar Arquivo de TesteOpentech (2)\Consultas Auxiliares'
+
+	annotation PBI_ResultType = Function
+
+expression Parâmetro3 = #"Arquivo de Amostra (5)" meta [IsParameterQuery=true, BinaryIdentifier=#"Arquivo de Amostra (5)", Type="Binary", IsParameterQueryRequired=true]
+	lineageTag: a0cb040a-fe6b-4b3d-bfbd-718936744a16
+	queryGroup: 'TABELAS PADRÃO\Transformar Arquivo de TesteOpentech (3)\Consultas Auxiliares'
+
+	annotation PBI_ResultType = Binary
+
+	annotation PBI_NavigationStepName = Navegação
+
+expression 'Transformar o Arquivo de Exemplo (3)' =
+		let
+		    Fonte = Excel.Workbook(Parâmetro3, null, true),
+		    #"PAINEL MONITORAÇÃO_Sheet" = Fonte{[Item="PAINEL MONITORAÇÃO",Kind="Sheet"]}[Data],
+		    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"PAINEL MONITORAÇÃO_Sheet", [PromoteAllScalars=true])
+		in
+		    #"Cabeçalhos Promovidos"
+	lineageTag: 206d0f4a-4b9a-461a-9980-710762182f68
+	queryGroup: 'TABELAS PADRÃO\Transformar Arquivo de TesteOpentech (3)'
+
+	annotation PBI_ResultType = Table
+
+expression 'Arquivo de Amostra (5)' =
+		let
+		    Fonte = Folder.Files("C:\Users\flavi\OneDrive\001\TesteOpentech"),
+		    #"Arquivos Ocultos Filtrados1" = Table.SelectRows(Fonte, each [Attributes]?[Hidden]? <> true),
+		    #"Invocar Função Personalizada1" = Table.AddColumn(#"Arquivos Ocultos Filtrados1", "Transformar Arquivo (4)", each #"Transformar Arquivo (4)"([Content])),
+		    #"Colunas Renomeadas1" = Table.RenameColumns(#"Invocar Função Personalizada1", {"Name", "Nome da Origem"}),
+		    Navegação1 = #"Colunas Renomeadas1"{0}[Content]
+		in
+		    Navegação1
+	lineageTag: 065a4839-7083-4562-b68e-c7dc3699d02d
+	queryGroup: 'TABELAS PADRÃO\Transformar Arquivo de TesteOpentech (3)\Consultas Auxiliares'
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Binary
+
+expression 'Transformar Arquivo (5)' =
+		let
+		    Fonte = (Parâmetro3 as binary) => let
+		    Fonte = Excel.Workbook(Parâmetro3, null, true),
+		    #"PAINEL MONITORAÇÃO_Sheet" = Fonte{[Item="PAINEL MONITORAÇÃO",Kind="Sheet"]}[Data],
+		    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"PAINEL MONITORAÇÃO_Sheet", [PromoteAllScalars=true])
+		in
+		    #"Cabeçalhos Promovidos"
+		in
+		    Fonte
+	lineageTag: af344a32-50ed-4048-b022-92fe85f286cb
+	queryGroup: 'TABELAS PADRÃO\Transformar Arquivo de TesteOpentech (3)\Consultas Auxiliares'
+
+	annotation PBI_ResultType = Function
+
+expression 'Arquivo de Amostra (6)' =
+		let
+		    Fonte = Folder.Files("C:\Users\flavi\OneDrive - transking.com.br\PROCESSOS\TK BI\Flavi\002\03-CTRC"),
+		    Content0 = Fonte{0}[Content],
+		    #"CSV Importado" = Csv.Document(Content0,[Delimiter=";", Columns=151, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+		    #"Tipo Alterado" = Table.TransformColumnTypes(#"CSV Importado",{{"Column1", Int64.Type}, {"Column2", type text}, {"Column3", type text}, {"Column4", type text}, {"Column5", type text}, {"Column6", type text}, {"Column7", type text}, {"Column8", type text}, {"Column9", type text}, {"Column10", type text}, {"Column11", type text}, {"Column12", type text}, {"Column13", type text}, {"Column14", type text}, {"Column15", type text}, {"Column16", type text}, {"Column17", type text}, {"Column18", type text}, {"Column19", type text}, {"Column20", type text}, {"Column21", type text}, {"Column22", type text}, {"Column23", type text}, {"Column24", type text}, {"Column25", type text}, {"Column26", type text}, {"Column27", type text}, {"Column28", type text}, {"Column29", type text}, {"Column30", type text}, {"Column31", type text}, {"Column32", type text}, {"Column33", type text}, {"Column34", type text}, {"Column35", type text}, {"Column36", type text}, {"Column37", type text}, {"Column38", type text}, {"Column39", type text}, {"Column40", type text}, {"Column41", type text}, {"Column42", type text}, {"Column43", type text}, {"Column44", type text}, {"Column45", type text}, {"Column46", type text}, {"Column47", type text}, {"Column48", type text}, {"Column49", type text}, {"Column50", type text}, {"Column51", type text}, {"Column52", type text}, {"Column53", type text}, {"Column54", type text}, {"Column55", type text}, {"Column56", type text}, {"Column57", type text}, {"Column58", type text}, {"Column59", type text}, {"Column60", type text}, {"Column61", type text}, {"Column62", type text}, {"Column63", type text}, {"Column64", type text}, {"Column65", type text}, {"Column66", type text}, {"Column67", type text}, {"Column68", type text}, {"Column69", type text}, {"Column70", type text}, {"Column71", type text}, {"Column72", type text}, {"Column73", type text}, {"Column74", type text}, {"Column75", type text}, {"Column76", type text}, {"Column77", type text}, {"Column78", type text}, {"Column79", type text}, {"Column80", type text}, {"Column81", type text}, {"Column82", type text}, {"Column83", type text}, {"Column84", type text}, {"Column85", type text}, {"Column86", type text}, {"Column87", type text}, {"Column88", type text}, {"Column89", type text}, {"Column90", type text}, {"Column91", type text}, {"Column92", type text}, {"Column93", type text}, {"Column94", type text}, {"Column95", type text}, {"Column96", type text}, {"Column97", type text}, {"Column98", type text}, {"Column99", type text}, {"Column100", type text}, {"Column101", type text}, {"Column102", type text}, {"Column103", type text}, {"Column104", type text}, {"Column105", type text}, {"Column106", type text}, {"Column107", type text}, {"Column108", type text}, {"Column109", type text}, {"Column110", type text}, {"Column111", type text}, {"Column112", type text}, {"Column113", type text}, {"Column114", type text}, {"Column115", type text}, {"Column116", type text}, {"Column117", type text}, {"Column118", type text}, {"Column119", type text}, {"Column120", type text}, {"Column121", type text}, {"Column122", type text}, {"Column123", type text}, {"Column124", type text}, {"Column125", type text}, {"Column126", type text}, {"Column127", type text}, {"Column128", type text}, {"Column129", type text}, {"Column130", type text}, {"Column131", type text}, {"Column132", type text}, {"Column133", type text}, {"Column134", type text}, {"Column135", type text}, {"Column136", type text}, {"Column137", type text}, {"Column138", type text}, {"Column139", type text}, {"Column140", type text}, {"Column141", type text}, {"Column142", type text}, {"Column143", type text}, {"Column144", type text}, {"Column145", type text}, {"Column146", type text}, {"Column147", type text}, {"Column148", type text}, {"Column149", type text}, {"Column150", type text}, {"Column151", type text}})
+		in
+		    #"Tipo Alterado"
+	lineageTag: 43bce735-e93a-4f57-ace2-203692c0fb8b
+	queryGroup: 'TABELAS PADRÃO\Transformar Arquivo de 03-CTRC\Consultas Auxiliares'
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegação
+
+expression Parâmetro4 = #"Arquivo de Amostra (6)" meta [IsParameterQuery=true, BinaryIdentifier=#"Arquivo de Amostra (6)", Type="Binary", IsParameterQueryRequired=true]
+	lineageTag: 217409de-2493-406d-a53c-5d59125a08ce
+	queryGroup: 'TABELAS PADRÃO\Transformar Arquivo de 03-CTRC\Consultas Auxiliares'
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegação
+
+expression 'Transformar o Arquivo de Exemplo (4)' =
+		let
+		    Fonte = Csv.Document(Parâmetro4,[Delimiter=";", Columns=151, Encoding=1252, QuoteStyle=QuoteStyle.None])
+		in
+		    Fonte
+	lineageTag: 5df6702e-93c0-414d-8c66-de0bbdd70fd0
+	queryGroup: 'TABELAS PADRÃO\Transformar Arquivo de 03-CTRC'
+
+	annotation PBI_ResultType = Table
+
+expression 'Transformar Arquivo (6)' =
+		let
+		    Fonte = (Parâmetro4 as binary) => let
+		    Fonte = Csv.Document(Parâmetro4,[Delimiter=";", Columns=151, Encoding=1252, QuoteStyle=QuoteStyle.None])
+		in
+		    Fonte
+		in
+		    Fonte
+	lineageTag: c657b7ed-aa3d-46fd-9846-c96db86c675f
+	queryGroup: 'TABELAS PADRÃO\Transformar Arquivo de 03-CTRC\Consultas Auxiliares'
+
+	annotation PBI_ResultType = Function
+
+expression 'Arquivo de Amostra (7)' =
+		let
+		    Fonte = Folder.Files("C:\Users\flavi\OneDrive - transking.com.br\PROCESSOS\TK BI\Flavi\002\04-MANIFESTOS"),
+		    Navegação1 = Fonte{0}[Content]
+		in
+		    Navegação1
+	lineageTag: a3ff689c-b6ae-4447-8c92-b63cf7b3ef88
+	queryGroup: 'TABELAS PADRÃO\Transformar Arquivo de 04-MANIFESTOS\Consultas Auxiliares'
+
+	annotation PBI_ResultType = Binary
+
+expression Parâmetro5 = #"Arquivo de Amostra (7)" meta [IsParameterQuery=true, BinaryIdentifier=#"Arquivo de Amostra (7)", Type="Binary", IsParameterQueryRequired=true]
+	lineageTag: f92006ea-cd21-4edb-ae96-068823ff9b99
+	queryGroup: 'TABELAS PADRÃO\Transformar Arquivo de 04-MANIFESTOS\Consultas Auxiliares'
+
+	annotation PBI_ResultType = Exception
+
+	annotation PBI_NavigationStepName = Navegação
+
+expression 'Transformar Arquivo (7)' =
+		let
+		    Fonte = (Parâmetro5 as binary) => let
+		    Fonte = Csv.Document(Parâmetro5,[Delimiter=";", Columns=64, Encoding=1252, QuoteStyle=QuoteStyle.None])
+		in
+		    Fonte
+		in
+		    Fonte
+	lineageTag: 610c0291-5050-4861-862b-09277d3e8c2f
+	queryGroup: 'TABELAS PADRÃO\Transformar Arquivo de 04-MANIFESTOS\Consultas Auxiliares'
+
+	annotation PBI_ResultType = Function
+
+expression Parâmetro6 = #"Arquivo de Amostra (8)" meta [IsParameterQuery=true, BinaryIdentifier=#"Arquivo de Amostra (8)", Type="Binary", IsParameterQueryRequired=true]
+	lineageTag: bd47bbbe-4d0d-47a2-9a76-5f2c6fb7374f
+	queryGroup: 'TABELAS PADRÃO\Transformar Arquivo de Opentech - Acomp - Veiculos - FINI\Consultas Auxiliares'
+
+	annotation PBI_ResultType = Binary
+
+	annotation PBI_NavigationStepName = Navegação
+
+expression 'Transformar o Arquivo de Exemplo (6)' =
+		let
+		    Fonte = Excel.Workbook(Parâmetro6, null, true)
+		in
+		    Fonte
+	lineageTag: 2140c456-df75-4813-8891-629f7a009b5c
+	queryGroup: 'TABELAS PADRÃO\Transformar Arquivo de Opentech - Acomp - Veiculos - FINI'
+
+	annotation PBI_ResultType = Table
+
+expression 'Arquivo de Amostra (8)' =
+		let
+		    Fonte = Folder.Files("C:\Users\flavi\OneDrive\001\Opentech - Acomp - Veiculos - FINI"),
+		    Navegação1 = Fonte{0}[Content]
+		in
+		    Navegação1
+	lineageTag: a7d96913-6381-4dc2-9773-3c54a87bb337
+	queryGroup: 'TABELAS PADRÃO\Transformar Arquivo de Opentech - Acomp - Veiculos - FINI\Consultas Auxiliares'
+
+	annotation PBI_ResultType = Binary
+
+expression 'Transformar Arquivo (8)' =
+		let
+		    Fonte = (Parâmetro6 as binary) => let
+		    Fonte = Excel.Workbook(Parâmetro6, null, true)
+		in
+		    Fonte
+		in
+		    Fonte
+	lineageTag: 17e67fb0-f96f-43a9-8d24-9af295c12c15
+	queryGroup: 'TABELAS PADRÃO\Transformar Arquivo de Opentech - Acomp - Veiculos - FINI\Consultas Auxiliares'
+
+	annotation PBI_ResultType = Function
+
+expression Parâmetro7 = #"Arquivo de Amostra (9)" meta [IsParameterQuery=true, BinaryIdentifier=#"Arquivo de Amostra (9)", Type="Binary", IsParameterQueryRequired=true]
+	lineageTag: ab11c4b6-914a-4beb-8d63-28ae79b56f2c
+	queryGroup: 'TABELAS PADRÃO\Transformar Arquivo de Opentech - Acomp - Veiculos - Monitoração\Consultas Auxiliares'
+
+	annotation PBI_ResultType = Binary
+
+	annotation PBI_NavigationStepName = Navegação
+
+expression 'Transformar o Arquivo de Exemplo (7)' =
+		let
+		    Fonte = Excel.Workbook(Parâmetro7, null, true)
+		in
+		    Fonte
+	lineageTag: 7cc37dc3-4a83-4fdf-aa81-7e5bc574b1cb
+	queryGroup: 'TABELAS PADRÃO\Transformar Arquivo de Opentech - Acomp - Veiculos - Monitoração'
+
+	annotation PBI_ResultType = Table
+
+expression 'Arquivo de Amostra (9)' =
+		let
+		    Fonte = Folder.Files("C:\Users\flavi\OneDrive\001\Opentech - Acomp - Veiculos - Monitoração"),
+		    Navegação1 = Fonte{0}[Content]
+		in
+		    Navegação1
+	lineageTag: 98ea8bb9-6124-43dc-a12d-1d80e6b9848b
+	queryGroup: 'TABELAS PADRÃO\Transformar Arquivo de Opentech - Acomp - Veiculos - Monitoração\Consultas Auxiliares'
+
+	annotation PBI_ResultType = Binary
+
+expression 'Transformar Arquivo (9)' =
+		let
+		    Fonte = (Parâmetro7 as binary) => let
+		    Fonte = Excel.Workbook(Parâmetro7, null, true)
+		in
+		    Fonte
+		in
+		    Fonte
+	lineageTag: 7612225c-e402-423c-8d46-7d7ca1271f00
+	queryGroup: 'TABELAS PADRÃO\Transformar Arquivo de Opentech - Acomp - Veiculos - Monitoração\Consultas Auxiliares'
+
+	annotation PBI_ResultType = Exception
+
+expression Parâmetro8 = #"Arquivo de Amostra (10)" meta [IsParameterQuery=true, BinaryIdentifier=#"Arquivo de Amostra (10)", Type="Binary", IsParameterQueryRequired=true]
+	lineageTag: b35a7cef-4130-440d-91f0-6b19a14631d6
+	queryGroup: 'TABELAS PADRÃO\Transformar Arquivo de Opentech - Acomp - Veiculos - Painel Generico\Consultas Auxiliares'
+
+	annotation PBI_ResultType = Binary
+
+	annotation PBI_NavigationStepName = Navegação
+
+expression 'Transformar o Arquivo de Exemplo (8)' =
+		let
+		    Fonte = Excel.Workbook(Parâmetro8, null, true)
+		in
+		    Fonte
+	lineageTag: ab1f14c0-4baf-4a02-a913-d880a691f312
+	queryGroup: 'TABELAS PADRÃO\Transformar Arquivo de Opentech - Acomp - Veiculos - Painel Generico'
+
+	annotation PBI_ResultType = Table
+
+expression 'Arquivo de Amostra (10)' =
+		let
+		    Fonte = Folder.Files("C:\Users\flavi\OneDrive\001\Opentech - Acomp - Veiculos - Painel Generico"),
+		    Navegação1 = Fonte{0}[Content]
+		in
+		    Navegação1
+	lineageTag: 84b479e7-3f57-4211-a245-fb75d2110a46
+	queryGroup: 'TABELAS PADRÃO\Transformar Arquivo de Opentech - Acomp - Veiculos - Painel Generico\Consultas Auxiliares'
+
+	annotation PBI_ResultType = Binary
+
+expression 'Transformar Arquivo (10)' =
+		let
+		    Fonte = (Parâmetro8 as binary) => let
+		    Fonte = Excel.Workbook(Parâmetro8, null, true)
+		in
+		    Fonte
+		in
+		    Fonte
+	lineageTag: 65df2e85-9e50-423b-b15f-ded073b6a37e
+	queryGroup: 'TABELAS PADRÃO\Transformar Arquivo de Opentech - Acomp - Veiculos - Painel Generico\Consultas Auxiliares'
+
+	annotation PBI_ResultType = Function
+

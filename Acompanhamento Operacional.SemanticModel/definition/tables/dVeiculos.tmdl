@@ -1,0 +1,41 @@
+table dVeiculos
+	lineageTag: a43f51a0-4e5b-4e8f-a7b5-6495e089bc13
+
+	column COD
+		dataType: int64
+		formatString: 0
+		lineageTag: 507da1d0-1d71-4678-b5c5-361897c3968e
+		summarizeBy: sum
+		sourceColumn: COD
+
+		annotation SummarizationSetBy = Automatic
+
+	column DESCRICAO
+		dataType: string
+		lineageTag: 9ee1a220-2c2f-4aa3-866c-d015a475543c
+		summarizeBy: none
+		sourceColumn: DESCRICAO
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dVeiculos = m
+		mode: import
+		queryGroup: 'TABELAS PADRÃO'
+		source =
+				let
+				    Fonte = Folder.Files("C:\Users\flavi\OneDrive\001\Bases BI"),
+				    #"Arquivos Ocultos Filtrados1" = Table.SelectRows(Fonte, each [Attributes]?[Hidden]? <> true),
+				    #"Invocar Função Personalizada1" = Table.AddColumn(#"Arquivos Ocultos Filtrados1", "Transformar Arquivo (12)", each #"Transformar Arquivo (12)"([Content])),
+				    #"Colunas Renomeadas1" = Table.RenameColumns(#"Invocar Função Personalizada1", {"Name", "Nome da Origem"}),
+				    #"Linhas Filtradas" = Table.SelectRows(#"Colunas Renomeadas1", each ([Nome da Origem] = "VEÍCULOS.xlsx.xls")),
+				    #"Outras Colunas Removidas1" = Table.SelectColumns(#"Linhas Filtradas", {"Nome da Origem", "Transformar Arquivo (12)"}),
+				    #"Transformar Arquivo (12) Expandido" = Table.ExpandTableColumn(#"Outras Colunas Removidas1", "Transformar Arquivo (12)", {"COD", "DESCRICAO"}, {"COD", "DESCRICAO"}),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Transformar Arquivo (12) Expandido",{"Nome da Origem"}),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Colunas Removidas",{{"COD", Int64.Type}, {"DESCRICAO", type text}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegação
+

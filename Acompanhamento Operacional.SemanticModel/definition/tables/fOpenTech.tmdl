@@ -1,0 +1,357 @@
+table fOpenTech
+	lineageTag: e68cebf1-db6b-47a9-9f3f-fc29c798a034
+
+	column Transportadora
+		dataType: string
+		lineageTag: fc9f48ad-081b-4b10-8a6f-73ba407b4538
+		summarizeBy: none
+		sourceColumn: Transportadora
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Placa veículo'
+		dataType: string
+		lineageTag: 82074a29-3a11-4a6c-84e5-c5b94e90d903
+		summarizeBy: none
+		sourceColumn: Placa veículo
+
+		annotation SummarizationSetBy = Automatic
+
+	column Frota
+		dataType: string
+		lineageTag: e27c24f5-0e57-46f8-89f3-a4c9031e7c3d
+		summarizeBy: none
+		sourceColumn: Frota
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Aut. de embarque'
+		dataType: int64
+		formatString: 0
+		lineageTag: 470a2a78-c1c2-4723-aef9-d96d0f502504
+		summarizeBy: sum
+		sourceColumn: Aut. de embarque
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Última posição'
+		dataType: double
+		lineageTag: 22c67f16-0ee6-4eef-8b23-352cd36a6e2e
+		summarizeBy: sum
+		sourceColumn: Última posição
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Valor carga (R$)'
+		dataType: double
+		lineageTag: 67589cd7-7797-40e5-a8ae-b204522ff8ed
+		summarizeBy: sum
+		sourceColumn: Valor carga (R$)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Referência posição cidade'
+		dataType: string
+		lineageTag: 55f7b75d-dd20-412d-ae43-bd72346b36dd
+		summarizeBy: none
+		sourceColumn: Referência posição cidade
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Previsão início(BRA)'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 83d064d7-51ea-4050-ae18-a6678058ec45
+		summarizeBy: none
+		sourceColumn: Previsão início(BRA)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Previsão fim(BRA)'
+		dataType: double
+		lineageTag: 207cbc87-7157-49fd-ad9a-807e21c7aeb1
+		summarizeBy: sum
+		sourceColumn: Previsão fim(BRA)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Inicio posição'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a695d6ae-e98c-43ce-90ea-357eb9ef2295
+		summarizeBy: none
+		sourceColumn: Inicio posição
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tempo total de viagem'
+		dataType: string
+		lineageTag: 53f4a53a-5f2d-41f4-a9d1-e1dffa5cdb01
+		summarizeBy: none
+		sourceColumn: Tempo total de viagem
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Km restante'
+		dataType: int64
+		formatString: 0
+		lineageTag: d0759067-b428-4e07-8dd7-e336470b76db
+		summarizeBy: sum
+		sourceColumn: Km restante
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tipo de cavalo'
+		dataType: string
+		lineageTag: ff5641af-e043-477a-b6be-81b90c0a6add
+		summarizeBy: none
+		sourceColumn: Tipo de cavalo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tipo de carreta 1'
+		dataType: string
+		lineageTag: c3b6a3f1-59df-4561-bcd2-32e93cf7d02f
+		summarizeBy: none
+		sourceColumn: Tipo de carreta 1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tipo de carreta 2'
+		dataType: string
+		lineageTag: 2e6c8e4f-d20b-4b53-802b-2dcaf6f3e07f
+		summarizeBy: none
+		sourceColumn: Tipo de carreta 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Operação do cliente'
+		dataType: string
+		lineageTag: c9c60da6-2a45-4d69-90e5-966d886622ed
+		summarizeBy: none
+		sourceColumn: Operação do cliente
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unidade responsável'
+		dataType: string
+		lineageTag: da3a7c05-6a0e-4f0d-a4d9-b954250e9343
+		summarizeBy: none
+		sourceColumn: Unidade responsável
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Op. encerrou viagem'
+		dataType: string
+		lineageTag: 141925f4-13bd-416f-bc25-06bd6871ed41
+		summarizeBy: none
+		sourceColumn: Op. encerrou viagem
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Frota viagem'
+		dataType: string
+		lineageTag: fea76730-92c7-4dab-a0a9-efb99b09d2d4
+		summarizeBy: none
+		sourceColumn: Frota viagem
+
+		annotation SummarizationSetBy = Automatic
+
+	column Destino
+		dataType: string
+		lineageTag: a081bdd1-5bee-42bf-97c5-11bb04e0cf10
+		summarizeBy: none
+		sourceColumn: Destino
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tipo de Veículo'
+		dataType: string
+		lineageTag: 47b4f6ab-5030-4223-873e-d5ff9634b152
+		summarizeBy: none
+		sourceColumn: Tipo de Veículo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Km percorrido'
+		dataType: int64
+		formatString: 0
+		lineageTag: daaa7f01-ef9e-471e-9dca-9f230ff46b95
+		summarizeBy: sum
+		sourceColumn: Km percorrido
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tempo Restante de Transit Time'
+		dataType: string
+		lineageTag: 2764c2f1-5c02-48a8-8018-5712dcd40ba6
+		summarizeBy: none
+		sourceColumn: Tempo Restante de Transit Time
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tempo parada total'
+		dataType: string
+		lineageTag: f16f529f-a1f5-4143-808f-82841e9dfae8
+		summarizeBy: none
+		sourceColumn: Tempo parada total
+
+		annotation SummarizationSetBy = Automatic
+
+	column '% concluído da viagem'
+		dataType: string
+		lineageTag: 8f98101a-d642-485c-b03f-a46f32e706fa
+		summarizeBy: none
+		sourceColumn: % concluído da viagem
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Situação '
+		dataType: string
+		lineageTag: 7a257ac0-262d-4e90-bafd-7bda2c31d377
+		summarizeBy: none
+		sourceColumn: "Situação "
+
+		annotation SummarizationSetBy = Automatic
+
+	column Origem
+		dataType: string
+		lineageTag: 4e5f8131-5153-4b1a-b1f0-f6343842c633
+		summarizeBy: none
+		sourceColumn: Origem
+
+		annotation SummarizationSetBy = Automatic
+
+	column Atraso
+		dataType: string
+		lineageTag: 812f8c5c-6e89-46ab-96cc-e9c2b4b6d747
+		summarizeBy: none
+		sourceColumn: Atraso
+
+		annotation SummarizationSetBy = Automatic
+
+	column Coletas
+		dataType: string
+		lineageTag: 3c9a937c-511c-445f-b3bb-9ccb08e95146
+		summarizeBy: none
+		sourceColumn: Coletas
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tipo de Alerta'
+		dataType: string
+		lineageTag: 09bb1177-c4bd-444d-9feb-d35acbbc2930
+		summarizeBy: none
+		sourceColumn: Tipo de Alerta
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data fim(BRA)'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c6dd7ac5-a07f-4403-ba3b-ff6e72fefb51
+		summarizeBy: none
+		sourceColumn: Data fim(BRA)
+
+		annotation SummarizationSetBy = Automatic
+
+	column Entregas
+		dataType: string
+		lineageTag: 7be2319b-ac23-4b7c-ad0f-98fd67613b5a
+		summarizeBy: none
+		sourceColumn: Entregas
+
+		annotation SummarizationSetBy = Automatic
+
+	column Transferências
+		dataType: string
+		lineageTag: df050876-c6ff-48d6-8357-f6186915f7fc
+		summarizeBy: none
+		sourceColumn: Transferências
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Alerta prev. início'
+		dataType: string
+		lineageTag: f572ff5c-ceee-4b63-867c-5b5a21a54dc9
+		summarizeBy: none
+		sourceColumn: Alerta prev. início
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Programador viagem'
+		dataType: string
+		lineageTag: fa2b8b3f-2bdb-4a22-9355-45244eda41e5
+		summarizeBy: none
+		sourceColumn: Programador viagem
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Programador frota'
+		dataType: string
+		lineageTag: 3f30a967-eaff-4ad3-b60a-ae38e64394be
+		summarizeBy: none
+		sourceColumn: Programador frota
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Controle de carga'
+		dataType: int64
+		formatString: 0
+		lineageTag: 70ee050e-83ed-44c8-b15b-d03e9da57054
+		summarizeBy: sum
+		sourceColumn: Controle de carga
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Próximo destinatário'
+		dataType: string
+		lineageTag: cf83f77c-ba56-4046-b5ff-9c4fb2a118b0
+		summarizeBy: none
+		sourceColumn: Próximo destinatário
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Situação veículo'
+		dataType: string
+		lineageTag: 80984678-a75c-4172-8ed0-b02160a14037
+		summarizeBy: none
+		sourceColumn: Situação veículo
+
+		annotation SummarizationSetBy = Automatic
+
+	column Alerta(s)
+		dataType: string
+		lineageTag: 92f5978a-d873-4eaa-a152-dbd47fb635d3
+		summarizeBy: none
+		sourceColumn: Alerta(s)
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fOpenTech = m
+		mode: import
+		queryGroup: 'TABELAS PADRÃO'
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\flavi\OneDrive\001\Opentech\PAINEL MONITORAÇÃO.xlsx"), null, true),
+				    #"PAINEL MONITORAÇÃO_Sheet" = Fonte{[Item="PAINEL MONITORAÇÃO",Kind="Sheet"]}[Data],
+				    #"Colunas Removidas" = Table.RemoveColumns(#"PAINEL MONITORAÇÃO_Sheet",{"Column1"}),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Colunas Removidas", [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"Op. encerrou viagem", type text}, {"Frota viagem", type text}, {"Destino", type text}, {"Aut. de embarque", Int64.Type}, {"Previsão início(BRA)", type datetime}, {"Situação ", type text}, {"Origem", type text}, {"Frota", type text}, {"Inicio posição", type datetime}, {"Atraso", type text}, {"Previsão fim(BRA)", type number}, {"Coletas", type text}, {"Tipo de Alerta", type text}, {"Data fim(BRA)", type datetime}, {"Entregas", type text}, {"Transferências", type text}, {"Alerta prev. início", type text}, {"Programador frota", type any}, {"Controle de carga", Int64.Type}, {"Programador viagem", type text}, {"Tipo de cavalo", type text}, {"Tipo de carreta 1", type text}, {"Tipo de carreta 2", type any}, {"Transportadora", type text}, {"Referência posição cidade", type text}, {"Última posição", type number}, {"Próximo destinatário", type any}, {"Situação veículo", type any}, {"Valor carga (R$)", type number}, {"Alerta(s)", type any}, {"Operação do cliente", type any}, {"Unidade responsável", type text}, {"Situação operação", type any}}),
+				    #"Colunas Removidas1" = Table.RemoveColumns(#"Tipo Alterado",{"Situação operação"}),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Colunas Removidas1",{{"Placa veículo", type text}}),
+				    #"Linhas Filtradas" = Table.SelectRows(#"Tipo Alterado1", each ([#"Data fim(BRA)"] = null)),
+				    #"Tipo Alterado2" = Table.TransformColumnTypes(#"Linhas Filtradas",{{"Km restante", Int64.Type}, {"Km percorrido", Int64.Type}})
+				in
+				    #"Tipo Alterado2"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

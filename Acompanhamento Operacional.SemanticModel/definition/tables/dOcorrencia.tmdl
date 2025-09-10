@@ -1,0 +1,41 @@
+table dOcorrencia
+	lineageTag: fbab1938-c8d6-42b4-b69c-fada51925fc9
+
+	column OCORRENCIA
+		dataType: string
+		lineageTag: 68232b97-66a4-40ba-a543-b9ddfcb96c68
+		summarizeBy: none
+		sourceColumn: OCORRENCIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'STATUS ENTREGA'
+		dataType: string
+		lineageTag: 8027fe28-ac3c-4e29-a716-03409787a1f9
+		summarizeBy: none
+		sourceColumn: STATUS ENTREGA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'STATUS COLETA'
+		dataType: string
+		lineageTag: dcd47c46-787e-41b9-9e0b-1c0e7b3f7d78
+		summarizeBy: none
+		sourceColumn: STATUS COLETA
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dOcorrencia = m
+		mode: import
+		queryGroup: 'TABELAS PADRÃO'
+		source =
+				let
+				    Fonte = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("jZFBbsQwCEWvgrJqpbkENXSE5BgX21k0mvtfo6RJp5lqZHcHNh8en3WdOFXjK4IxRvlEwukyvUvaE31Mbpd10qxWWxJCYshsJENJQPMBxCH6O6GrooInPppHUo1cEQKmwHGHex7vxXM2XdDb+jT42Sxzov+PuvsAL869NfAwKSwsoUV9dSHPgG9s9UkT4uIUmGjnO1f+xg+LEZZqo+qZzSvVBKFIkruitw9eGxo5isJGtd2gz+5fmctHk9KHOTU+HJrdXu1qDvfAX00rns4z8nPR2AIqVJfF0crf56c+yoFPG4yUgn+rzz1vXw==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [OCORRENCIA = _t, #"STATUS ENTREGA" = _t, #"STATUS COLETA" = _t]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Fonte,{{"OCORRENCIA", type text}, {"STATUS ENTREGA", type text}, {"STATUS COLETA", type text}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegação
+

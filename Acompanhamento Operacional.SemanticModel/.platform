@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Acompanhamento Operacional"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "5248a662-18a5-49f5-a05b-5cdacad1834e"
+  }
+}

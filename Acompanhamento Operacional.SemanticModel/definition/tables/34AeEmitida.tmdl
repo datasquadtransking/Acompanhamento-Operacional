@@ -1,0 +1,95 @@
+table 34AeEmitida
+	lineageTag: 6d9bb7a5-1df6-42e3-98cc-a0444c5d7fb8
+
+	column NUMERO_COLETA
+		dataType: int64
+		formatString: 0
+		lineageTag: 39fd5621-0de8-457f-b5f4-db095ed563f1
+		summarizeBy: none
+		sourceColumn: NUMERO_COLETA
+
+		annotation SummarizationSetBy = Automatic
+
+	column COTACAO
+		dataType: int64
+		formatString: 0
+		lineageTag: 5542bc80-8102-4230-a258-2d67c3e9ad14
+		summarizeBy: sum
+		sourceColumn: COTACAO
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATA_ULTIMA_OCORRENCIA
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 20acac80-8de0-4620-8ff3-2aec6529625e
+		summarizeBy: none
+		sourceColumn: DATA_ULTIMA_OCORRENCIA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column HORA_ULTIMA_OCORRENCIA
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: 13fd040e-1171-48a9-8745-af9f1d2f8964
+		summarizeBy: none
+		sourceColumn: HORA_ULTIMA_OCORRENCIA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column USUARIO_ULTIMA_OCORRENCIA
+		dataType: string
+		lineageTag: bc65d85d-16f0-4ca7-9cbb-d8e576f6260e
+		summarizeBy: none
+		sourceColumn: USUARIO_ULTIMA_OCORRENCIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column ULTIMA_OCORRENCIA
+		dataType: string
+		lineageTag: 2f87c085-029b-4fc4-8bea-09bd23f30b5d
+		summarizeBy: none
+		sourceColumn: ULTIMA_OCORRENCIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column CHAVE
+		dataType: string
+		lineageTag: 1085aa27-c766-45e9-aa76-8692da83cebb
+		summarizeBy: none
+		sourceColumn: CHAVE
+
+		annotation SummarizationSetBy = Automatic
+
+	column 34DataHoraAeEmitida
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 602271b0-a318-44b3-ac97-7ddc8cf70ad8
+		summarizeBy: none
+		sourceColumn: 34DataHoraAeEmitida
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 34AeEmitida = m
+		mode: import
+		queryGroup: 'TABELAS PADRÃO'
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\flavi\OneDrive\001\Ocorrencias\Ocorrencias - AE EMITIDA.xlsx"), null, true),
+				    Sheet1_Sheet = Fonte{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"NUMERO_COLETA", Int64.Type}, {"COTACAO", Int64.Type}, {"DATA_ULTIMA_OCORRENCIA", type date}, {"HORA_ULTIMA_OCORRENCIA", type time}, {"USUARIO_ULTIMA_OCORRENCIA", type text}, {"ULTIMA_OCORRENCIA", type text}, {"CHAVE", type text}}),
+				    #"Coluna Mesclada Inserida" = Table.AddColumn(#"Tipo Alterado", "34DataHoraAeEmitida", each Text.Combine({Text.From([NUMERO_COLETA], "pt-BR"), Text.From([DATA_ULTIMA_OCORRENCIA], "pt-BR"), Text.From([HORA_ULTIMA_OCORRENCIA], "pt-BR")}, " "), type text),
+				    #"Texto Extraído Após o Delimitador" = Table.TransformColumns(#"Coluna Mesclada Inserida", {{"34DataHoraAeEmitida", each Text.AfterDelimiter(_, " "), type text}}),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Texto Extraído Após o Delimitador",{{"34DataHoraAeEmitida", type datetime}})
+				in
+				    #"Tipo Alterado1"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

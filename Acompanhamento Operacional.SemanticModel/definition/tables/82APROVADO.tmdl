@@ -1,0 +1,113 @@
+table 82APROVADO
+	lineageTag: 65f13e91-fffe-4325-9029-949607a30cd0
+
+	column NUMERO_COLETA
+		dataType: int64
+		formatString: 0
+		lineageTag: 82f7ffab-70a7-4c32-bdef-701701f9e706
+		summarizeBy: none
+		sourceColumn: NUMERO_COLETA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column COTACAO
+		dataType: int64
+		formatString: 0
+		lineageTag: 651b71f9-4f09-44e1-8e76-4adea513d164
+		summarizeBy: sum
+		sourceColumn: COTACAO
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATA_ULTIMA_OCORRENCIA
+		dataType: dateTime
+		formatString: dd/mm/yy
+		lineageTag: fea1f614-dcd2-4c64-b7e8-50c14b7c8988
+		summarizeBy: none
+		sourceColumn: DATA_ULTIMA_OCORRENCIA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column HORA_ULTIMA_OCORRENCIA
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: 249e3352-8251-4a76-9143-7b8fa6354049
+		summarizeBy: none
+		sourceColumn: HORA_ULTIMA_OCORRENCIA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column USUARIO_ULTIMA_OCORRENCIA
+		dataType: string
+		lineageTag: 6b338bfc-cb5c-413f-80f6-9e6669dc20ca
+		summarizeBy: none
+		sourceColumn: USUARIO_ULTIMA_OCORRENCIA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ULTIMA_OCORRENCIA
+		dataType: string
+		lineageTag: fdd1fc08-0902-4db8-a125-5f5192389071
+		summarizeBy: none
+		sourceColumn: ULTIMA_OCORRENCIA
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column CHAVE
+		dataType: string
+		lineageTag: 70478537-fce4-45e5-a987-6eb35671f332
+		summarizeBy: none
+		sourceColumn: CHAVE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DataHoraAprovadoGr
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: bdc00ef2-408e-4235-b422-0824ed8f163d
+		summarizeBy: none
+		sourceColumn: DataHoraAprovadoGr
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 82APROVADO = m
+		mode: import
+		queryGroup: 'Tabelas GR'
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\flavi\OneDrive\001\Ocorrencias\Ocorrencias - APROVADO.xlsx"), null, true),
+				    Sheet1_Sheet = Fonte{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"NUMERO_COLETA", Int64.Type}, {"COTACAO", Int64.Type}, {"DATA_ULTIMA_OCORRENCIA", type date}, {"HORA_ULTIMA_OCORRENCIA", type time}, {"USUARIO_ULTIMA_OCORRENCIA", type text}, {"ULTIMA_OCORRENCIA", type text}, {"CHAVE", type text}}),
+				    #"Duplicatas Removidas" = Table.Distinct(#"Tipo Alterado", {"NUMERO_COLETA"}),
+				    #"Coluna Mesclada Inserida" = Table.AddColumn(#"Duplicatas Removidas", "DataHoraAprovadoGr", each Text.Combine({Text.From([DATA_ULTIMA_OCORRENCIA], "pt-BR"), Text.From([HORA_ULTIMA_OCORRENCIA], "pt-BR")}, " "), type text),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Coluna Mesclada Inserida",{{"DataHoraAprovadoGr", type datetime}})
+				in
+				    #"Tipo Alterado1"
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

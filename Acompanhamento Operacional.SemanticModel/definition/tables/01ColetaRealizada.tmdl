@@ -1,0 +1,113 @@
+table 01ColetaRealizada
+	lineageTag: c751c558-ab31-4465-a94f-b1f624e62c1f
+
+	measure ManCurvaA = ```
+			
+			VAR Resultado =
+			    CALCULATE(
+			        DISTINCTCOUNT(dManifestos[NUM_MANIF]),
+			        FILTER(
+			            ALL(dCurva), -- ignora o contexto atual da dCurva
+			            dCurva[CURVA] = "A"
+			        )
+			    )
+			RETURN
+			    IF(ISBLANK(Resultado), 0, Resultado)
+			
+			```
+		formatString: 0
+		lineageTag: ae0512c0-9f6a-4652-a49f-a471d1ab56dc
+
+	column NUMERO_COLETA
+		dataType: int64
+		formatString: 0
+		lineageTag: 5d760aa3-2a0e-4c3e-a270-567614067844
+		summarizeBy: none
+		sourceColumn: NUMERO_COLETA
+
+		annotation SummarizationSetBy = Automatic
+
+	column COTACAO
+		dataType: int64
+		formatString: 0
+		lineageTag: b3112c8b-ee1d-407c-ba80-8c4f74e874f9
+		summarizeBy: sum
+		sourceColumn: COTACAO
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATA_ULTIMA_OCORRENCIA
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: bf19ab48-2a22-4aec-b8bd-6b3d7217df4a
+		summarizeBy: none
+		sourceColumn: DATA_ULTIMA_OCORRENCIA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column HORA_ULTIMA_OCORRENCIA
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: 9bb937e6-c57c-466e-a965-a07a24168eed
+		summarizeBy: none
+		sourceColumn: HORA_ULTIMA_OCORRENCIA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column USUARIO_ULTIMA_OCORRENCIA
+		dataType: string
+		lineageTag: ecdfaebb-5c75-4268-8372-53338dd2c364
+		summarizeBy: none
+		sourceColumn: USUARIO_ULTIMA_OCORRENCIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column ULTIMA_OCORRENCIA
+		dataType: string
+		lineageTag: d92371c9-a8e2-4ebc-b55b-b61b55e7593c
+		summarizeBy: none
+		sourceColumn: ULTIMA_OCORRENCIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column CHAVE
+		dataType: string
+		lineageTag: 52b4f891-8ad7-4d2d-baf1-d001cbb9a419
+		summarizeBy: none
+		sourceColumn: CHAVE
+
+		annotation SummarizationSetBy = Automatic
+
+	column 01DataHoraColetaRealizada
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: db59383f-9f8d-4361-b3a7-f150cb25530b
+		summarizeBy: none
+		sourceColumn: 01DataHoraColetaRealizada
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 01ColetaRealizada = m
+		mode: import
+		queryGroup: 'TABELAS PADRÃO'
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\flavi\OneDrive\001\Ocorrencias\Ocorrencias - COLETA REALIZADA.xlsx"), null, true),
+				    Sheet1_Sheet = Fonte{[Item="Sheet1",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Sheet1_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"NUMERO_COLETA", Int64.Type}, {"COTACAO", Int64.Type}, {"DATA_ULTIMA_OCORRENCIA", type date}, {"HORA_ULTIMA_OCORRENCIA", type time}, {"USUARIO_ULTIMA_OCORRENCIA", type text}, {"ULTIMA_OCORRENCIA", type text}, {"CHAVE", type text}}),
+				    #"Coluna Mesclada Inserida" = Table.AddColumn(#"Tipo Alterado", "01DataHoraColetaRealizada", each Text.Combine({Text.From([DATA_ULTIMA_OCORRENCIA], "pt-BR"), Text.From([HORA_ULTIMA_OCORRENCIA], "pt-BR")}, " "), type text),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Coluna Mesclada Inserida",{{"01DataHoraColetaRealizada", type datetime}}),
+				    #"Linhas Filtradas" = Table.SelectRows(#"Tipo Alterado1", each ([ULTIMA_OCORRENCIA] = "1" or [ULTIMA_OCORRENCIA] = "1 - COLETA REALIZADA (CARREGADA NO VEICULO)")),
+				    #"Duplicatas Removidas" = Table.Distinct(#"Linhas Filtradas", {"COTACAO"})
+				in
+				    #"Duplicatas Removidas"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

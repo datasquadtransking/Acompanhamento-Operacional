@@ -1,0 +1,131 @@
+table dClientes
+	lineageTag: a25b061d-303d-4c8f-8853-9a4f38003c0b
+
+	column 'NOME CLIENTE PRINCIPAL'
+		dataType: string
+		lineageTag: 10b73109-f418-4c52-8fe5-9a426e911759
+		summarizeBy: none
+		sourceColumn: NOME CLIENTE PRINCIPAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'NOME DO GRUPO'
+		dataType: string
+		lineageTag: e067130f-eac6-4fb0-810f-f1c212563c6f
+		summarizeBy: none
+		sourceColumn: NOME DO GRUPO
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CNPJ PRINCIPAL.1'
+		dataType: int64
+		formatString: 0
+		lineageTag: e2f01f06-c122-4e38-a4cf-a0562a9a0aa9
+		summarizeBy: sum
+		sourceColumn: CNPJ PRINCIPAL.1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CNPJ CLIENTE.1'
+		dataType: int64
+		formatString: 0
+		lineageTag: b1ed7174-938d-4d51-9fe4-c10e7bef92d1
+		summarizeBy: sum
+		sourceColumn: CNPJ CLIENTE.1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'NOME CLIENTE'
+		dataType: string
+		lineageTag: 4b5688d7-70cc-4066-9ef3-a1dcf9cfab4d
+		summarizeBy: none
+		sourceColumn: NOME CLIENTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ENDERECO
+		dataType: string
+		lineageTag: 5ab32d82-a340-49f9-9a8c-63566aeca873
+		summarizeBy: none
+		sourceColumn: ENDERECO
+
+		annotation SummarizationSetBy = Automatic
+
+	column CEP
+		dataType: string
+		lineageTag: 572ab67c-b504-456a-bbae-ddacd2adf103
+		summarizeBy: none
+		sourceColumn: CEP
+
+		annotation SummarizationSetBy = Automatic
+
+	column FONE
+		dataType: string
+		lineageTag: 28d38c9c-3d80-47b6-ab93-da2604354ab3
+		summarizeBy: none
+		sourceColumn: FONE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CIDADE
+		dataType: string
+		lineageTag: 00c681aa-1985-4a2f-8ac6-e5757fc06c98
+		summarizeBy: none
+		sourceColumn: CIDADE
+
+		annotation SummarizationSetBy = Automatic
+
+	column UF
+		dataType: string
+		lineageTag: 0a218e0b-2a5a-4c45-84b7-f6b5ca84a02c
+		summarizeBy: none
+		sourceColumn: UF
+
+		annotation SummarizationSetBy = Automatic
+
+	column FIL
+		dataType: string
+		lineageTag: f1460758-e009-4b3f-a5e0-abaed9f08f77
+		summarizeBy: none
+		sourceColumn: FIL
+
+		annotation SummarizationSetBy = Automatic
+
+	column ULTMOVIM
+		dataType: string
+		lineageTag: 48e95cf6-a728-4593-8e6a-9e9d5c968a5d
+		summarizeBy: none
+		sourceColumn: ULTMOVIM
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'INSCRICAO ESTADUAL'
+		dataType: string
+		lineageTag: adea3197-3343-4141-a46f-3817b935d244
+		summarizeBy: none
+		sourceColumn: INSCRICAO ESTADUAL
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dClientes = m
+		mode: import
+		queryGroup: 'TABELAS PADRÃO'
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents("C:\Users\flavi\OneDrive\001\Bases BI\Clientes.csv"),[Delimiter=";", Columns=14, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Colunas Removidas2" = Table.RemoveColumns(Fonte,{"Column1"}),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Colunas Removidas2", [PromoteAllScalars=true]),
+				    #"Cabeçalhos Promovidos1" = Table.PromoteHeaders(#"Cabeçalhos Promovidos", [PromoteAllScalars=true]),
+				    #"Dividir Coluna por Delimitador" = Table.SplitColumn(#"Cabeçalhos Promovidos1", "CNPJ PRINCIPAL", Splitter.SplitTextByDelimiter("�", QuoteStyle.None), {"CNPJ PRINCIPAL.1", "CNPJ PRINCIPAL.2"}),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Dividir Coluna por Delimitador",{{"CNPJ PRINCIPAL.1", Int64.Type}, {"CNPJ PRINCIPAL.2", type text}, {"NOME CLIENTE PRINCIPAL", type text}, {"NOME DO GRUPO", type text}, {"CNPJ CLIENTE", type text}}),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Tipo Alterado",{"CNPJ PRINCIPAL.2"}),
+				    #"Dividir Coluna por Delimitador1" = Table.SplitColumn(#"Colunas Removidas", "CNPJ CLIENTE", Splitter.SplitTextByDelimiter("�", QuoteStyle.None), {"CNPJ CLIENTE.1", "CNPJ CLIENTE.2"}),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Dividir Coluna por Delimitador1",{{"CNPJ CLIENTE.1", Int64.Type}, {"CNPJ CLIENTE.2", type text}}),
+				    #"Colunas Removidas1" = Table.RemoveColumns(#"Tipo Alterado1",{"CNPJ CLIENTE.2"})
+				in
+				    #"Colunas Removidas1"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegação
+

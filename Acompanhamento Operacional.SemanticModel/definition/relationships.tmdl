@@ -1,0 +1,107 @@
+relationship f524f389-26ae-42f3-9b61-72d6bfd9b5bd
+	fromColumn: fColetas.ULTIMA_OCORRENCIA
+	toColumn: dOcorrencia.OCORRENCIA
+
+relationship 090ef80d-8014-409c-9560-01ce1bcd8104
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: fColetas.PAGADOR
+	toColumn: dCotação.'NOME PAGADOR'
+
+relationship cb5ae5b6-a175-4229-b17e-9eb469d34f68
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: dClientes.'NOME CLIENTE PRINCIPAL'
+	toColumn: dCotação.'NOME PAGADOR'
+
+relationship b35f7d4e-2dc8-4f7a-ae56-b5a80238594f
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: fColetas.MOTORISTA
+	toColumn: dMotoristas.Nome
+
+relationship AutoDetected_7300ddeb-0975-4a94-a07a-9c334a4cd57b
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: '81EM PESQUISA'.NUMERO_COLETA
+	toColumn: fColetas.NUMERO_COLETA
+
+relationship AutoDetected_11c6db45-c572-4f90-9dfc-16922955d96a
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 82APROVADO.NUMERO_COLETA
+	toColumn: fColetas.NUMERO_COLETA
+
+relationship AutoDetected_b0e40888-ecff-43f2-aec8-050c37fbdaa3
+	fromColumn: '81EM PESQUISA'.COTACAO
+	toColumn: dCotação.COTACAO
+
+relationship 90b4d19a-b62a-8645-d454-a27a5009d07d
+	fromColumn: fColetas.DATA_INCLUSAO
+	toColumn: dCalendário.Date
+
+relationship AutoDetected_5690ee60-06b2-4683-9745-af0d8f57dda1
+	fromColumn: dManifestos.'CLIENTE PRINCIPAL'
+	toColumn: dCurva.'CLIENTE PRINCIPAL'
+
+relationship AutoDetected_0c9d623f-7f01-4128-973c-5442d7e23cdf
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 35ChegadaNaColeta.NUMERO_COLETA
+	toColumn: fColetas.NUMERO_COLETA
+
+relationship AutoDetected_8475e12c-c5d8-42b0-9f65-b3d26c20fd84
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 35ChegadaNaColeta.COTACAO
+	toColumn: dCotação.COTACAO
+
+relationship 017314d9-b5a5-4691-adde-0a07a5f34dfe
+	fromColumn: 11EntregaRealizada.NUMERO_COLETA
+	toColumn: fColetas.NUMERO_COLETA
+
+	annotation PBI_IsFromSource = FS
+
+relationship b2292ced-1b3a-446f-ae79-6b6a8cfe677a
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 34AeEmitida.NUMERO_COLETA
+	toColumn: fColetas.NUMERO_COLETA
+
+	annotation PBI_IsFromSource = FS
+
+relationship 0b18ecf3-ec5b-4a75-b0c2-defd068c842e
+	fromColumn: 17AguardandoDescarga.NUMERO_COLETA
+	toColumn: fColetas.NUMERO_COLETA
+
+	annotation PBI_IsFromSource = FS
+
+relationship a52b2c59-a98c-445a-b296-5f6a3d487724
+	fromColumn: 30EntregaRealizada.NUMERO_COLETA
+	toColumn: fColetas.NUMERO_COLETA
+
+	annotation PBI_IsFromSource = FS
+
+relationship 505bf083-0f1a-2cb9-1cf5-bc253601c14c
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: fColetas.NUMERO_COLETA
+	toColumn: 3DocEmitido.NUMERO_COLETA
+
+relationship 42d904e0-c8a7-26ca-fe8a-8783d3db05d9
+	crossFilteringBehavior: bothDirections
+	fromColumn: 01ColetaRealizada.NUMERO_COLETA
+	toColumn: fColetas.NUMERO_COLETA
+
+relationship dd86aee4-c955-88be-a2ef-46c1ea269b99
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: fOpenTech.'Placa veículo'
+	toColumn: fColetas.PLACA_CAVALO
+
+relationship 6971cc34-18fe-110f-9d07-f1b20f97d1f1
+	fromColumn: dManifestos.EMIS_MANIF
+	toColumn: dCalendário.Date
+

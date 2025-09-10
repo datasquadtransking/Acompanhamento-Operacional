@@ -1,0 +1,351 @@
+table MEDIDAS
+	lineageTag: abc4ce13-6669-4ff5-8a76-66a823329e8b
+
+	measure '%ENTREGA NO PRAZO' = ```
+			[PRAZO_ENTREGA] / [cotacao] 
+			```
+		lineageTag: f403f2b6-3d5b-46f3-bd86-c4a62d579dd3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Abertura_horario =
+			SUMX(
+			    SUMMARIZE(fColetas, fColetas[HORA]),
+			    CALCULATE(
+			        COUNTROWS(fColetas),
+			        ALLEXCEPT(fColetas, fColetas[HORA])
+			    )
+			)
+		formatString: 0
+		lineageTag: 9758b035-2bfe-48de-aab4-f1bb05a73168
+
+	measure ATRASADOS = [0. A-COLETA] + [0. A-ENTREGA]
+		formatString: 0
+		lineageTag: b466938b-f50e-4fcf-8301-d13da9503050
+
+	measure ATRASO_COLETA = CALCULATE(DISTINCTCOUNT(fColetas[NUMERO_COLETA]), fColetas[STATUS COLETA] = "COM ATRASO")
+		formatString: 0
+		lineageTag: 13872ba0-7a21-4243-9211-b0bb7a9c787a
+
+	measure ATRASO_ENTREGA = CALCULATE(DISTINCTCOUNT(fColetas[NUMERO_COLETA]), fColetas[STATUS ENTREGA] = "COM ATRASO")
+		formatString: 0
+		lineageTag: cf35c55f-4db5-44e3-bdbb-043177da2d5e
+
+	measure Atualização = NOW() - TIME(3, 0, 0)
+		formatString: General Date
+		lineageTag: 80fec4a6-9b2c-4a09-8b08-13741d0e6512
+
+	measure Canceladas_Por_Dia = ```
+			IF(ISBLANK(
+			COUNTROWS(
+			    FILTER(
+			        fColetas,
+			        [dOcorrencia.STATUS COLETA] = "CANCELADA"
+			    )
+			)), 0, 
+			COUNTROWS(
+			    FILTER(
+			        fColetas,
+			        [dOcorrencia.STATUS COLETA] = "CANCELADA"
+			    )
+			)
+			)
+			```
+		formatString: 0
+		lineageTag: 34f45ba0-9155-4be7-8a8a-fd685b5c69d0
+
+	measure 'Coleta no prazo' = [PRAZO_COLETA] / [cotacao]
+		formatString: 0%;-0%;0%
+		lineageTag: a559ead2-afb6-449e-a272-9c289345b99b
+
+	measure COLETA_FINALIZADAS = "COLETAS FINALIZADAS"
+		lineageTag: dc2bb65d-0280-4c9a-911d-cc0b31d802d5
+
+	measure Coletar_noDia = CALCULATE(DISTINCTCOUNT(fColetas[NUMERO_COLETA]), fColetas[ABERTURA X DATA_COLETA] = "PARA O DIA")
+		formatString: 0
+		lineageTag: e54017da-d291-4d86-aa76-1c0a0e125e2b
+
+	measure COLETAS_ABERTO = if(ISBLANK(CALCULATE(COUNT(fColetas[NUMERO_COLETA]), fColetas[dOcorrencia.STATUS COLETA] = "EM ABERTO")), 0 , CALCULATE(COUNT(fColetas[NUMERO_COLETA]), fColetas[dOcorrencia.STATUS COLETA] = "EM ABERTO"))
+		formatString: 0
+		lineageTag: f0a05935-5233-4f13-8c9f-b0d2ba2095f8
+
+	measure COLETAS_NOME = "COLETAS EM ABERTO"
+		lineageTag: bc90aa4a-1580-4b29-9c29-c17e8c8e1382
+
+	measure cotacao = DISTINCTCOUNTNOBLANK(fColetas[COTACAO])
+		formatString: 0
+		lineageTag: bc59e5be-93e1-415d-a2cf-1ea40b01cbf3
+
+	measure 'D1 - Total' = [0. D0-COLETA] + [0. D0-ENTREGA]
+		formatString: 0
+		lineageTag: 93833df6-6c12-4c9f-aa22-2973854efe82
+
+	measure 'D2 - Total' = [0. D1-COLETA] + [0. D1-ENTREGA]
+		formatString: 0
+		lineageTag: c64cedea-2b7a-43af-b9d8-16faeb381360
+
+	measure ENTREGAS_ABERTO = if(ISBLANK(CALCULATE(COUNT(fColetas[NUMERO_COLETA]), fColetas[dOcorrencia.STATUS ENTREGA] = "EM ABERTO")), 0 , CALCULATE(COUNT(fColetas[NUMERO_COLETA]), fColetas[dOcorrencia.STATUS ENTREGA] = "EM ABERTO", fColetas[SITUAÇÃO_CONS] = "ENTREGA"))
+		formatString: 0
+		lineageTag: ee019e21-617f-47cc-b97b-90422a68dca4
+
+	measure ENTREGAS_FINALIZADAS = "ENTREGAS FINALIZADAS"
+		lineageTag: 886697eb-4ce2-459a-9ece-3ae623189e74
+
+	measure ENTREGAS_NOME = "ENTREGAS EM ABERTO"
+		lineageTag: 7465d2ba-3e63-4023-bf8e-0b7971d2030d
+
+	measure FINALIZADAS = IF(ISBLANK(DISTINCTCOUNT(fColetas[NUMERO_COLETA]) - [Canceladas_Por_Dia] - [Pendentes]),0,DISTINCTCOUNT(fColetas[NUMERO_COLETA]) - [Canceladas_Por_Dia] - [Pendentes])
+		formatString: 0
+		lineageTag: 63c0ed76-b809-4fbd-8fce-00dd5ee0fe37
+
+	measure 'finalizadas com atraso' = [ATRASO_COLETA] + [ATRASO_ENTREGA]
+		formatString: 0
+		lineageTag: 7cdc4bd7-cccd-4fcc-a44c-e6f181eac397
+
+	measure FINALIZADASENTREGAS = IF(ISBLANK(DISTINCTCOUNT(fColetas[NUMERO_COLETA]) - [Canceladas_Por_Dia] - [Pendentes]),0,DISTINCTCOUNT(fColetas[NUMERO_COLETA]) - [Canceladas_Por_Dia] - [Pendentes])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: b1b311dd-9472-46ac-bb1b-927ca85bc247
+
+	measure META = 0.95* [FINALIZADAS]
+		lineageTag: c757e617-bcea-4acb-9e00-b79985e563b0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Pendentes = ```
+			
+			CALCULATE(
+			    COUNTROWS(fColetas),
+			    fColetas[STATUS_ATUAL] IN {
+			        "1. AG. PLANEJAMENTO",
+			        "2. EM GR",
+			        "3. AG. COLETA", 
+			        "4. AG. EMISSÃO",  
+			        "5. AG. A.E",
+			        "6. EM ROTA",
+			        "7. AG. DESCARGA"
+			    }
+			)
+			```
+		formatString: 0
+		lineageTag: 6cdfb92f-f8a8-4558-bcfa-aa0102ed51e3
+
+	measure Perdida_Por_Dia = ```
+			
+			COUNTROWS(
+			    FILTER(
+			        fColetas,
+			        [ULTIMA_OCORRENCIA] = "OPORTUNIDADE PERDIDA"
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: cec129c8-d56f-435f-b587-8a53e6e1dfd2
+
+	measure Porcentagem_de_Cotacoes = ([Abertura_horario] / COUNT(fColetas[NUMERO_COLETA]) -1)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: d22a4569-fcf9-4d2d-ab8f-cafe6143718f
+
+	measure PRAZO_COLETA = CALCULATE(DISTINCTCOUNT(fColetas[NUMERO_COLETA]), fColetas[STATUS COLETA] = "NO PRAZO")
+		formatString: 0
+		lineageTag: 9ad27e83-59fd-4335-b9df-9614f7f54532
+
+	measure PRAZO_ENTREGA = CALCULATE(DISTINCTCOUNT(fColetas[NUMERO_COLETA]), fColetas[STATUS ENTREGA] = "NO PRAZO")
+		formatString: 0
+		lineageTag: 690b51fd-6205-46f2-9b56-5b62478187ff
+
+	measure Quantidade_Coletas_Por_Dia = ```
+			
+			COUNTROWS(
+			    FILTER(
+			        fColetas,
+			        [ULTIMA_OCORRENCIA] <> "ENTREGA REALIZADA" && [ULTIMA_OCORRENCIA] <> "OPORTUNIDADE PERDIDA" 
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: e4714942-3589-4479-b846-b86605694067
+
+	measure Quantidade_Entregas_Realizadas_Por_Dia = ```
+			
+			COUNTROWS(
+			    FILTER(
+			        fColetas,
+			        [ULTIMA_OCORRENCIA] = "ENTREGA REALIZADA"
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 4e3fe886-e468-4590-9c8f-603ab9b1d530
+
+	measure 'TEMPO SEM ATUALZIAR' = (([Atualização])* 24) + 3
+		lineageTag: 3ede50c0-c0a1-4e37-ad1a-6d26defdabd3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure URGENTE = fColetas[0. A-COLETA] + fColetas[0. A-ENTREGA] + fColetas[0. D0-COLETA] + fColetas[0. D0-ENTREGA]
+		formatString: 0
+		lineageTag: 3d555716-36c8-4c4c-92a0-a759176bd252
+
+	measure Valor_Acumulado_Entregas_Realizadas = ```
+			
+			VAR CurrentDate = MAX(fColetas[INCLUSÃO_CONS]) 
+			RETURN
+			SUMX(
+			    FILTER(
+			        ALL(fColetas),
+			        fColetas[INCLUSÃO_CONS] <= CurrentDate
+			    ),
+			    [Quantidade_Entregas_Realizadas_Por_Dia]
+			)
+			```
+		formatString: 0
+		lineageTag: cbc4493f-6b58-44a1-a074-4d94c524506d
+
+	measure Valor_Acumulado_Pendentes = ```
+			
+			VAR CurrentDate = MAX(fColetas[INCLUSÃO_CONS]) 
+			RETURN
+			SUMX(
+			    FILTER(
+			        ALL(fColetas),
+			        fColetas[INCLUSÃO_CONS] <= CurrentDate
+			    ),
+			        [Pendentes] 
+			)
+			```
+		formatString: 0
+		lineageTag: 5e0a65db-0bea-4d29-a977-944224e2c38b
+
+	measure Valor_Acumulado_Transportes = ```
+			
+			VAR CurrentDate = MAX(fColetas[INCLUSÃO_CONS])
+			RETURN
+			SUMX(
+			    FILTER(
+			        ALL(fColetas),
+			        fColetas[INCLUSÃO_CONS] <= CurrentDate
+			    ),
+			    COUNT([NUMERO_COLETA]) 
+			)
+			```
+		formatString: 0
+		lineageTag: 953b18d1-8236-4db0-8432-544fbbfb4644
+
+	measure QTD = IF(COUNTROWS(fColetas) = 0, 0, COUNTROWS(fColetas))
+		formatString: 0
+		lineageTag: 7bcf1606-e1b3-4529-8110-0567d2809161
+
+	measure 'HTML_ANIMA BORDA' = ```
+			
+			
+			"
+			    <style>
+			        .contorno{
+			            position:relative;
+			
+			            width: 100vw;
+			            height: 100vh;
+			
+			            border: 1px solid #27394C;
+			            border-radius: 10px;
+			
+			            display: flex;
+			            justify-content: center;
+			            align-items: center;
+			            overflow: hidden;
+			        }
+			
+			            
+			        .borda{
+			        
+			            position: absolute;
+			            width: 30%;
+			            height: 210%;
+			            border-radius: 10px;
+			            background: #00BFFF;
+			            box-shadow: 0 0 15px 5px #87CEFA; /* Glowing azul */
+			            animation: anima_borda 2.5s linear infinite, fadeIn 3s ease-out forwards, increaseWidth 3s ease-out forwards, decreaseWidth 2.5s ease-in 3s forwards;
+			        '
+			        }
+			        
+			        @keyframes anima_borda{
+			            from{
+			                transform: rotate(0)
+			            }
+			
+			            to{
+			                transform: rotate(360deg)
+			            }
+			        }
+			
+			        @keyframes fadeIn {
+			            0% {
+			                opacity: 0;
+			            }
+			            100% {
+			                opacity: 1;
+			            }
+			        }
+			
+			        /* Animação de aumento de largura */
+			        @keyframes increaseWidth {
+			            0% {
+			                width: 0%; /* Começa com 0% */
+			            }
+			            100% {
+			                width: 30%; /* Aumenta até 10% (ou o valor que você preferir) */
+			            }
+			        }
+			
+			            /* Animação de diminuição de largura */
+			        @keyframes decreaseWidth {
+			            0% {
+			                width: 30%; /* Começa com 30% (final da animação de aumento) */
+			            }
+			            100% {
+			                width: 0%; /* Diminui até 0% */
+			            }
+			        }
+			        /* Animação de fade-out (desaparecer) */
+			        @keyframes fadeOut {
+			            0% {
+			                opacity: 1; /* Começa visível */
+			            }
+			            100% {
+			                opacity: 0; /* Torna-se invisível */
+			            }
+			        }
+			    </style>
+			    
+			    <div class='contorno' >
+			    
+			        <div class='borda' >
+			        </div>
+			
+			    </div>
+			
+			"
+			```
+		lineageTag: cf269ac7-d5e4-448c-81e3-56b43d21cbf6
+
+	measure 'Medida 2'
+		lineageTag: feb652a2-884d-444a-88cd-a91a6a89c13f
+
+	partition MEDIDAS = m
+		mode: import
+		queryGroup: Medidas
+		source =
+				let
+				    Fonte = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Coluna 1" = _t]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Fonte,{{"Coluna 1", type text}}),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Tipo Alterado",{"Coluna 1"})
+				in
+				    #"Colunas Removidas"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegação
+

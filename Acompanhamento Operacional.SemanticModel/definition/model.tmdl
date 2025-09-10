@@ -1,0 +1,122 @@
+model Model
+	culture: pt-BR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: pt-BR
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+/// Ocorrências
+queryGroup 'Tabelas GR'
+
+	annotation PBI_QueryGroupOrder = 5
+
+queryGroup Medidas
+
+	annotation PBI_QueryGroupOrder = 4
+
+queryGroup 'TABELAS PADRÃO'
+
+	annotation PBI_QueryGroupOrder = 2
+
+queryGroup 'TABELAS PADRÃO\Transformar Arquivo de TesteOpentech'
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup 'TABELAS PADRÃO\Transformar Arquivo de TesteOpentech\Consultas Auxiliares'
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup 'TABELAS PADRÃO\Transformar Arquivo de TesteOpentech (2)'
+
+	annotation PBI_QueryGroupOrder = 1
+
+queryGroup 'TABELAS PADRÃO\Transformar Arquivo de TesteOpentech (2)\Consultas Auxiliares'
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup 'TABELAS PADRÃO\Transformar Arquivo de TesteOpentech (3)'
+
+	annotation PBI_QueryGroupOrder = 2
+
+queryGroup 'TABELAS PADRÃO\Transformar Arquivo de TesteOpentech (3)\Consultas Auxiliares'
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup 'TABELAS PADRÃO\Transformar Arquivo de 03-CTRC'
+
+	annotation PBI_QueryGroupOrder = 3
+
+queryGroup 'TABELAS PADRÃO\Transformar Arquivo de 03-CTRC\Consultas Auxiliares'
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup 'TABELAS PADRÃO\Transformar Arquivo de 04-MANIFESTOS'
+
+	annotation PBI_QueryGroupOrder = 4
+
+queryGroup 'TABELAS PADRÃO\Transformar Arquivo de 04-MANIFESTOS\Consultas Auxiliares'
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup 'TABELAS PADRÃO\Transformar Arquivo de Opentech - Acomp - Veiculos - FINI'
+
+	annotation PBI_QueryGroupOrder = 5
+
+queryGroup 'TABELAS PADRÃO\Transformar Arquivo de Opentech - Acomp - Veiculos - FINI\Consultas Auxiliares'
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup 'TABELAS PADRÃO\Transformar Arquivo de Opentech - Acomp - Veiculos - Monitoração'
+
+	annotation PBI_QueryGroupOrder = 6
+
+queryGroup 'TABELAS PADRÃO\Transformar Arquivo de Opentech - Acomp - Veiculos - Monitoração\Consultas Auxiliares'
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup 'TABELAS PADRÃO\Transformar Arquivo de Opentech - Acomp - Veiculos - Painel Generico'
+
+	annotation PBI_QueryGroupOrder = 7
+
+queryGroup 'TABELAS PADRÃO\Transformar Arquivo de Opentech - Acomp - Veiculos - Painel Generico\Consultas Auxiliares'
+
+	annotation PBI_QueryGroupOrder = 0
+
+annotation PBI_QueryOrder = ["fColetas","dCurva","dCotação","Arquivo de Amostra (2)","Transformar Arquivo (2)","dClientes","dOcorrencia","dManifestos","dVeiculos","Transformar Arquivo (12)","Arquivo de Amostra (13)","Transformar Arquivo (13)","dMotoristas","35ChegadaNaColeta","fOpenTech","01ColetaRealizada","3DocEmitido","34AeEmitida","81EM PESQUISA","82APROVADO","MEDIDAS","Arquivo de Amostra","Transformar Arquivo","17AguardandoDescarga","11EntregaRealizada","30EntregaRealizada","TesteOpentech","Parâmetro1","Transformar o Arquivo de Exemplo","Arquivo de Amostra (3)","Transformar Arquivo (3)","Parâmetro2","Transformar o Arquivo de Exemplo (2)","Arquivo de Amostra (4)","Transformar Arquivo (4)","Parâmetro3","Transformar o Arquivo de Exemplo (3)","Arquivo de Amostra (5)","Transformar Arquivo (5)","Arquivo de Amostra (6)","Parâmetro4","Transformar o Arquivo de Exemplo (4)","Transformar Arquivo (6)","Arquivo de Amostra (7)","Parâmetro5","Transformar o Arquivo de Exemplo (5)","Transformar Arquivo (7)","Opentech - Acomp - Veiculos - FINI","dCTRCS","Parâmetro6","Transformar o Arquivo de Exemplo (6)","Arquivo de Amostra (8)","Transformar Arquivo (8)","Opentech - Acomp - Veiculos - Monitoração","Parâmetro7","Transformar o Arquivo de Exemplo (7)","Arquivo de Amostra (9)","Transformar Arquivo (9)","Opentech - Acomp - Veiculos - Painel Generico","Parâmetro8","Transformar o Arquivo de Exemplo (8)","Arquivo de Amostra (10)","Transformar Arquivo (10)"]
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBIDesktopVersion = 2.146.1454.0 (25.08)+901d6c338d1dea81ac3e53073ffb10469f0f37b8
+
+annotation PBI_ProTooling = ["DaxQueryView_Desktop","DevMode"]
+
+ref table fColetas
+ref table dCotação
+ref table dOcorrencia
+ref table dClientes
+ref table dManifestos
+ref table dVeiculos
+ref table dMotoristas
+ref table dCurva
+ref table fOpenTech
+ref table '81EM PESQUISA'
+ref table 82APROVADO
+ref table MEDIDAS
+ref table dCalendário
+ref table dCTRCS
+ref table 35ChegadaNaColeta
+ref table 11EntregaRealizada
+ref table 34AeEmitida
+ref table 17AguardandoDescarga
+ref table 30EntregaRealizada
+ref table 3DocEmitido
+ref table 01ColetaRealizada
+ref table TesteOpentech
+ref table 'Opentech - Acomp - Veiculos - Monitoração'
+ref table 'Opentech - Acomp - Veiculos - Painel Generico'
+ref table 'Opentech - Acomp - Veiculos - FINI'
+ref table 'Transformar o Arquivo de Exemplo (5)'
+
+ref cultureInfo pt-BR
+
