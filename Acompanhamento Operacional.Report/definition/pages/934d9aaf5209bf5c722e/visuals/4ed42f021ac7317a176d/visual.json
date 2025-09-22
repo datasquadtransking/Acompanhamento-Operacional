@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "name": "4ed42f021ac7317a176d",
+  "position": {
+    "x": 14.153512284599685,
+    "y": 538,
+    "z": 13000,
+    "height": 93.767018885472908,
+    "width": 189.3032268065208,
+    "tabOrder": 19000
+  },
+  "visualGroup": {
+    "displayName": "AG EMISSAO",
+    "groupMode": "ScaleMode"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "name": "a9120c9a77c8be311b5c",
+  "position": {
+    "x": 14,
+    "y": 433,
+    "z": 14000,
+    "height": 93,
+    "width": 187.29320184832002,
+    "tabOrder": 20000
+  },
+  "visualGroup": {
+    "displayName": "AG COLETA",
+    "groupMode": "ScaleMode"
+  }
+}

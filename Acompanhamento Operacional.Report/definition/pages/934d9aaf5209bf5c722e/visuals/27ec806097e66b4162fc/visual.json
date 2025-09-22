@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "name": "27ec806097e66b4162fc",
+  "position": {
+    "x": 14,
+    "y": 853,
+    "z": 10000,
+    "height": 93.0204081632653,
+    "width": 187.4343000358038,
+    "tabOrder": 22000
+  },
+  "visualGroup": {
+    "displayName": "AG DESCARGA",
+    "groupMode": "ScaleMode"
+  }
+}

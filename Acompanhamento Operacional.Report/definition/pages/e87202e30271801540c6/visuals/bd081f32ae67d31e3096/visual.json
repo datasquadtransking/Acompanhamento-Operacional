@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "name": "bd081f32ae67d31e3096",
+  "position": {
+    "x": 14.750485983817132,
+    "y": 643,
+    "z": 6000,
+    "height": 94.05805922710681,
+    "width": 188.24845804997381,
+    "tabOrder": 22000
+  },
+  "visualGroup": {
+    "displayName": "AG AE",
+    "groupMode": "ScaleMode"
+  }
+}

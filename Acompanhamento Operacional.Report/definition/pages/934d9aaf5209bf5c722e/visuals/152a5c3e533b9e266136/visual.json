@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "name": "152a5c3e533b9e266136",
+  "position": {
+    "x": 14,
+    "y": 223,
+    "z": 16000,
+    "height": 93.285714285714334,
+    "width": 187.29320184832002,
+    "tabOrder": 21000
+  },
+  "visualGroup": {
+    "displayName": "AG CONTRATACAO",
+    "groupMode": "ScaleMode"
+  }
+}

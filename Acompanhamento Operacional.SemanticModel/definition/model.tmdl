@@ -87,8 +87,6 @@ annotation PBI_QueryOrder = ["fColetas","dCurva","dCotação","Arquivo de Amostr
 
 annotation __PBI_TimeIntelligenceEnabled = 0
 
-annotation PBIDesktopVersion = 2.146.1454.0 (25.08)+901d6c338d1dea81ac3e53073ffb10469f0f37b8
-
 annotation PBI_ProTooling = ["DaxQueryView_Desktop","DevMode"]
 
 ref table fColetas

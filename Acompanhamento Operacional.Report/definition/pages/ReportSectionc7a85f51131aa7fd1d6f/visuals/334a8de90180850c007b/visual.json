@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "name": "334a8de90180850c007b",
+  "position": {
+    "x": 14,
+    "y": 748,
+    "z": 11000,
+    "height": 93.220338983050851,
+    "width": 186.4406779661017,
+    "tabOrder": 23000
+  },
+  "visualGroup": {
+    "displayName": "EM ROTA",
+    "groupMode": "ScaleMode"
+  }
+}

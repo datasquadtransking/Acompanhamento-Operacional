@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "name": "0b10331facecfdd0522b",
+  "position": {
+    "x": 14,
+    "y": 958,
+    "z": 9000,
+    "height": 93.767018885472908,
+    "width": 187.68755005554553,
+    "tabOrder": 17000
+  },
+  "visualGroup": {
+    "displayName": "VALIDACAO FINAL",
+    "groupMode": "ScaleMode"
+  }
+}

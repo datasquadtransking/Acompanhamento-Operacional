@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "name": "570a6270315d04b30ac4",
+  "position": {
+    "x": 56.622047244094489,
+    "y": 56.622047244094489,
+    "z": 23000,
+    "height": 29.976377952755911,
+    "width": 199.84251968503938,
+    "tabOrder": 16000
+  },
+  "visualGroup": {
+    "displayName": "DT ATUALIZACAO",
+    "groupMode": "ScaleMode"
+  }
+}

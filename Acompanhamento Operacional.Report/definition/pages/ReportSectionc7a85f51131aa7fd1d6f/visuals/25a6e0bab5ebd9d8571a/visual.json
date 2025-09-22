@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "name": "25a6e0bab5ebd9d8571a",
+  "position": {
+    "x": 14.744094488188978,
+    "y": 117.95275590551182,
+    "z": 17000,
+    "height": 92.7973734614992,
+    "width": 186.99503594659365,
+    "tabOrder": 15000
+  },
+  "visualGroup": {
+    "displayName": "EM AB/URGT",
+    "groupMode": "ScaleMode"
+  }
+}
